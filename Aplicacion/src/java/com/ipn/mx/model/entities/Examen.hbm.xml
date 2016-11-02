@@ -8,19 +8,19 @@
             <column name="idExamen" />
             <generator class="identity" />
         </id>
-        <many-to-one name="materias" class="com.ipn.mx.model.entities.Materias" fetch="select">
+        <many-to-one name="materias" class="com.ipn.mx.model.entities.Materias" fetch="select" cascade="all">
             <column name="materias_idMaterias" not-null="true" />
         </many-to-one>
         <property name="fecha" type="date">
             <column name="fecha" length="10" />
         </property>
-        <set name="calificacioneses" table="calificaciones" inverse="true" lazy="true" fetch="select">
+        <set name="calificacioneses" table="calificaciones" inverse="true" lazy="true" fetch="select" cascade="all">
             <key>
                 <column name="idExamen" not-null="true" />
             </key>
             <one-to-many class="com.ipn.mx.model.entities.Calificaciones" />
         </set>
-        <set name="preguntases" table="preguntas" inverse="true" lazy="true" fetch="select">
+        <set name="preguntases" table="preguntas" inverse="true" lazy="true" fetch="select" cascade="all">
             <key>
                 <column name="idExamen" not-null="true" />
             </key>

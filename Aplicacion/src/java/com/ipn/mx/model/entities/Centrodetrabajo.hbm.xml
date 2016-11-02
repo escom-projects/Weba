@@ -11,7 +11,7 @@
         <property name="nombreCentroDeTrabajo" type="string">
             <column name="nombreCentroDeTrabajo" length="45" />
         </property>
-        <set name="carreras" table="carrera" inverse="true" lazy="true" fetch="select">
+        <set name="carreras" table="carrera" inverse="true" lazy="true" fetch="select" cascade="all">
             <key>
                 <column name="idcentrodetrabajo" not-null="true" />
             </key>

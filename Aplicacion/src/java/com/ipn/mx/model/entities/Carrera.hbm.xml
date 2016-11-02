@@ -8,7 +8,7 @@
             <column name="idCarrera" />
             <generator class="identity" />
         </id>
-        <many-to-one name="centrodetrabajo" class="com.ipn.mx.model.entities.Centrodetrabajo" fetch="select">
+        <many-to-one name="centrodetrabajo" class="com.ipn.mx.model.entities.Centrodetrabajo" fetch="select" cascade="all">
             <column name="idcentrodetrabajo" not-null="true" />
         </many-to-one>
         <property name="nombreCarrera" type="string">

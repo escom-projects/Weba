@@ -8,10 +8,10 @@
             <column name="matricula" />
             <generator class="assigned" />
         </id>
-        <many-to-one name="carrera" class="com.ipn.mx.model.entities.Carrera" fetch="select">
+        <many-to-one name="carrera" class="com.ipn.mx.model.entities.Carrera" fetch="select" cascade="all">
             <column name="idCarrera" />
         </many-to-one>
-        <many-to-one name="roles" class="com.ipn.mx.model.entities.Roles" fetch="select">
+        <many-to-one name="roles" class="com.ipn.mx.model.entities.Roles" fetch="select" cascade="all">
             <column name="idRol" />
         </many-to-one>
         <property name="nombreUsuario" type="string">
@@ -44,13 +44,13 @@
         <property name="email" type="string">
             <column name="eMail" length="45" />
         </property>
-        <set name="calificacioneses" table="calificaciones" inverse="true" lazy="true" fetch="select">
+        <set name="calificacioneses" table="calificaciones" inverse="true" lazy="true" fetch="select" cascade="all">
             <key>
                 <column name="matricula" not-null="true" />
             </key>
             <one-to-many class="com.ipn.mx.model.entities.Calificaciones" />
         </set>
-        <set name="tipousuarios" table="tipousuario" inverse="true" lazy="true" fetch="select">
+        <set name="tipousuarios" table="tipousuario" inverse="true" lazy="true" fetch="select" cascade="all">
             <key>
                 <column name="matricula" not-null="true" />
             </key>
