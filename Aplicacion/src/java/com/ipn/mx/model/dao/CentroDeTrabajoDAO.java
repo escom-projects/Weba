@@ -79,7 +79,7 @@ public class CentroDeTrabajoDAO {
         List<Centrodetrabajo> lce = new ArrayList<>();
         try {
             transaccion.begin();
-            Query query = sesion.createQuery("from centrodetrabajo");
+            Query query = sesion.createQuery("from Centrodetrabajo");
             lce = query.list();
             transaccion.commit();
         } catch (HibernateException e) {

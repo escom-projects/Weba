@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <title>¡Reg&iacute;strate!</title>
+        <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="css/jquery/jquery-ui.css"/>
+    </head>
+    <body>
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="index.html"><span class="glyphicon glyphicon-menu-left"></span>&nbsp;Inicio</a>
+                </div>
+            </div>
+        </nav><br/><br/><br/><br/>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-8">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading"><h3>Registro de usuarios</h3></div>
+                        <div class="panel-body">
+                            <form id="form-registro-clientes" action="Registro" method="post">
+                                <div id="campo-nombre" class="form-group">
+                                    <label for="nombre">Tu nombre: </label>
+                                    <input type="text" name="nombre" id="nombre" class="form-control" required />
+                                </div>
+                                <div id="campo-apellido-paterno" class="form-group">
+                                    <label for="ap_paterno_usuario">Apellido paterno: </label>
+                                    <input type="text" name="ap_paterno_usuario" id="ap_paterno_usuario" class="form-control" required />
+                                </div>
+                                <div id="campo-apellido-materno" class="form-group">
+                                    <label for="ap_materno_usuario">Apellido materno: </label>
+                                    <input type="text" name="ap_materno_usuario" id="ap_materno_usuario" class="form-control" required />
+                                </div>
+                                <div id="campo-correo" class="form-group">
+                                    <label for="correo_usuario">Correo Electr&oacute;nico: </label>
+                                    <input type="text" name="correo_usuario" id="correo_usuario" class="form-control" required />
+                                </div>
+                                <div id="campo-sexo" class="form-group">
+                                    <label for="sexo">Sexo: </label>
+                                    <input type="text" name="sexo" id="sexo" class="form-control" required />
+                                </div>
+                                <div class="row">
+                                    <div id="campo-fechaNacimiento" class="form-group col-md-4">
+                                        <label for="fechaNacimiento">Fecha de nacimiento: </label>
+                                        <input type="text" name="fechaNacimiento" id="fechaNacimiento" class="form-control" required />
+                                    </div>
+                                    <div id="campo-cp" class="form-group col-md-4">
+                                        <label for="cp">C&oacute;digo postal: </label>
+                                        <input type="text" name="cp" id="cp" class="form-control" required />
+                                    </div>
+                                    <div id="campo-calle" class="form-group col-md-4">
+                                        <label for="calle">Calle: </label>
+                                        <input type="text" name="calle" id="calle" class="form-control" required />
+                                    </div>
+                                </div>
+                                <div id="campo-colonia" class="form-group">
+                                        <label for="colonia">Colonia: </label>
+                                        <input type="text" name="colonia" id="colonia" class="form-control" required />
+                                    </div>
+                                <div id="campo-nombre-usuario" class="form-group">
+                                    <label for="nombre_usuario">Nombre de usuario: </label>
+                                    <input type="text" name="nombre_usuario" id="nombre_usuario" class="form-control" required />
+                                </div>
+                                <div id="campo-clave-usuario" class="form-group">
+                                    <label for="clave_usuario">Clave de usuario: </label>
+                                    <input type="text" name="clave_usuario" id="clave_usuario" class="form-control" required />
+                                </div>
+                                <div id="campo-terminos" class="checkbox">
+                                    <label>
+                                        <input type="checkbox"> Acepto términos y condiciones
+                                    </label>
+                                </div>
+                                <div id="btn-registro" class="form-group">
+                                    <div class="row">
+                                        <!-- <div class="col-sm-offset-1 col-sm-3"> -->
+                                        <div class="col-sm-1"></div>
+                                        <div class="col-sm-10">
+                                            <button type="submit" name="registrarUsuario" id="registrarUsuario"  class="btn btn-info btn-lg btn-block">Registrarme</button>
+                                        </div>
+                                        <div class="col-sm-1"></div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2"></div>
+            </div>
+        </div>
+        <script src="js/jquery/jquery-1.9.1.js"></script>
+        <script src="js/jquery/jquery-ui.js"></script>
+        <script src="js/funciones.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+    </body>
+</html>

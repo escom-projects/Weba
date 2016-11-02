@@ -13,18 +13,40 @@
         <script src="js/ie-emulation-modes-warning.js"></script>
     </head>
     <body>
-        
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">Practica 02</a>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#">Ayuda</a></li>
+                        <li class="active"><a href="registro.html">Registrate <span class="sr-only">(current)</span></a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
         <div class="container">
-            <form class="form-signin">
-                <h2 class="form-signin-heading">Por favor, registrese</h2>
-                <label for="inputEmail" class="sr-only">Email address</label>
-                <input type="email" id="inputEmail" class="form-control" placeholder="Nombre de usuario" required autofocus>
-                <label for="inputPassword" class="sr-only">Password</label>
-                <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+            <form class="form-signin" method="post" action="Login">
+                <h2 class="form-signin-heading">Por favor, reg&iacute;strate</h2>
+                <div class="input-group">
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></span>
+                    <input type="email" id="inputEmail" class="form-control" placeholder="Nombre de usuario" required autofocus>
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span></span>
+                    <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+                </div>
                 <div class="checkbox">
-                  <label>
-                    <input type="checkbox" value="remember-me"> Recordar contrase&ntilde;a
-                  </label>
+                    <label>
+                      <input type="checkbox" value="remember-me"> Recordar contrase&ntilde;a
+                    </label>
                 </div>
                 <button class="btn btn-lg btn-primary btn-block" type="submit">Acceder</button>
             </form>

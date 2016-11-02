@@ -44,6 +44,12 @@
         <property name="email" type="string">
             <column name="eMail" length="45" />
         </property>
+        <property name="nipUsuario" type="string">
+            <column name="nipUsuario" length="45" />
+        </property>
+        <property name="claveUsuario" type="string">
+            <column name="claveUsuario" length="45" />
+        </property>
         <set name="calificacioneses" table="calificaciones" inverse="true" lazy="true" fetch="select" cascade="all">
             <key>
                 <column name="matricula" not-null="true" />

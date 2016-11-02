@@ -24,6 +24,8 @@ public class Usuario  implements java.io.Serializable {
      private Long codigoPostal;
      private Character sexo;
      private String email;
+     private String nipUsuario;
+     private String claveUsuario;
      private Set calificacioneses = new HashSet(0);
      private Set tipousuarios = new HashSet(0);
 
@@ -142,6 +144,34 @@ public class Usuario  implements java.io.Serializable {
     
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    /**
+     * @return the nipUsuario
+     */
+    public String getNipUsuario() {
+        return nipUsuario;
+    }
+
+    /**
+     * @param nipUsuario the nipUsuario to set
+     */
+    public void setNipUsuario(String nipUsuario) {
+        this.nipUsuario = nipUsuario;
+    }
+
+    /**
+     * @return the claveUsuario
+     */
+    public String getClaveUsuario() {
+        return claveUsuario;
+    }
+
+    /**
+     * @param claveUsuario the claveUsuario to set
+     */
+    public void setClaveUsuario(String claveUsuario) {
+        this.claveUsuario = claveUsuario;
     }
     public Set getCalificacioneses() {
         return this.calificacioneses;
