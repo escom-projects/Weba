@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 1/11/2016 06:13:03 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.ipn.mx.model.entities.Materias" table="materias" catalog="bdeducacion" optimistic-lock="version">
+        <id name="idMaterias" type="int">
+            <column name="idMaterias" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="roles" class="com.ipn.mx.model.entities.Roles" fetch="select">
+            <column name="roles_idRol" not-null="true" />
+        </many-to-one>
+        <property name="nombreMateria" type="string">
+            <column name="nombreMateria" length="45" />
+        </property>
+        <property name="creditos" type="java.lang.Integer">
+            <column name="creditos" />
+        </property>
+        <set name="examens" table="examen" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="materias_idMaterias" not-null="true" />
+            </key>
+            <one-to-many class="com.ipn.mx.model.entities.Examen" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,9 +1,24 @@
-<?xml version='1.0' encoding='utf-8'?>
-<!DOCTYPE hibernate-configuration PUBLIC
-        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
-        "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
-    <session-factory>
-      
-    </session-factory>
+  <session-factory>
+    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/bdeducacion</property>
+    <property name="hibernate.connection.username">root</property>
+    <property name="hibernate.connection.password">root</property>
+    <property name="hibernate.current_session_context_class">thread</property>
+    <property name="hibernate.show_sql">true</property>
+    <property name="hibernate.query.factory_class">org.hibernate.hql.internal.classic.ClassicQueryTranslatorFactory</property>
+    <mapping resource="com/ipn/mx/model/entities/Usuario.hbm.xml"/>
+    <mapping resource="com/ipn/mx/model/entities/Respuestas.hbm.xml"/>
+    <mapping resource="com/ipn/mx/model/entities/Materias.hbm.xml"/>
+    <mapping resource="com/ipn/mx/model/entities/Centrodetrabajo.hbm.xml"/>
+    <mapping resource="com/ipn/mx/model/entities/Roles.hbm.xml"/>
+    <mapping resource="com/ipn/mx/model/entities/Calificaciones.hbm.xml"/>
+    <mapping resource="com/ipn/mx/model/entities/Carrera.hbm.xml"/>
+    <mapping resource="com/ipn/mx/model/entities/Preguntas.hbm.xml"/>
+    <mapping resource="com/ipn/mx/model/entities/Examen.hbm.xml"/>
+    <mapping resource="com/ipn/mx/model/entities/Tipousuario.hbm.xml"/>
+  </session-factory>
 </hibernate-configuration>
