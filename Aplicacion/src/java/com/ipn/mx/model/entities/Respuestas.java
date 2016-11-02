@@ -1,5 +1,5 @@
 package com.ipn.mx.model.entities;
-// Generated 1/11/2016 06:13:01 PM by Hibernate Tools 4.3.1
+// Generated 1/11/2016 06:37:57 PM by Hibernate Tools 4.3.1
 
 
 
@@ -9,7 +9,7 @@ package com.ipn.mx.model.entities;
 public class Respuestas  implements java.io.Serializable {
 
 
-     private int idRespuesta;
+     private Integer idRespuesta;
      private Preguntas preguntas;
      private String respuesta;
 
@@ -17,21 +17,19 @@ public class Respuestas  implements java.io.Serializable {
     }
 
 	
-    public Respuestas(int idRespuesta, Preguntas preguntas) {
-        this.idRespuesta = idRespuesta;
+    public Respuestas(Preguntas preguntas) {
         this.preguntas = preguntas;
     }
-    public Respuestas(int idRespuesta, Preguntas preguntas, String respuesta) {
-       this.idRespuesta = idRespuesta;
+    public Respuestas(Preguntas preguntas, String respuesta) {
        this.preguntas = preguntas;
        this.respuesta = respuesta;
     }
    
-    public int getIdRespuesta() {
+    public Integer getIdRespuesta() {
         return this.idRespuesta;
     }
     
-    public void setIdRespuesta(int idRespuesta) {
+    public void setIdRespuesta(Integer idRespuesta) {
         this.idRespuesta = idRespuesta;
     }
     public Preguntas getPreguntas() {

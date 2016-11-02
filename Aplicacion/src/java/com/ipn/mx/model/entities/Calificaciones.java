@@ -1,5 +1,5 @@
 package com.ipn.mx.model.entities;
-// Generated 1/11/2016 06:13:01 PM by Hibernate Tools 4.3.1
+// Generated 1/11/2016 06:37:57 PM by Hibernate Tools 4.3.1
 
 
 
@@ -9,7 +9,7 @@ package com.ipn.mx.model.entities;
 public class Calificaciones  implements java.io.Serializable {
 
 
-     private int idCalificaciones;
+     private Integer idCalificaciones;
      private Examen examen;
      private Usuario usuario;
      private Double puntaje;
@@ -18,23 +18,21 @@ public class Calificaciones  implements java.io.Serializable {
     }
 
 	
-    public Calificaciones(int idCalificaciones, Examen examen, Usuario usuario) {
-        this.idCalificaciones = idCalificaciones;
+    public Calificaciones(Examen examen, Usuario usuario) {
         this.examen = examen;
         this.usuario = usuario;
     }
-    public Calificaciones(int idCalificaciones, Examen examen, Usuario usuario, Double puntaje) {
-       this.idCalificaciones = idCalificaciones;
+    public Calificaciones(Examen examen, Usuario usuario, Double puntaje) {
        this.examen = examen;
        this.usuario = usuario;
        this.puntaje = puntaje;
     }
    
-    public int getIdCalificaciones() {
+    public Integer getIdCalificaciones() {
         return this.idCalificaciones;
     }
     
-    public void setIdCalificaciones(int idCalificaciones) {
+    public void setIdCalificaciones(Integer idCalificaciones) {
         this.idCalificaciones = idCalificaciones;
     }
     public Examen getExamen() {

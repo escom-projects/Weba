@@ -1,5 +1,5 @@
 package com.ipn.mx.model.entities;
-// Generated 1/11/2016 06:13:01 PM by Hibernate Tools 4.3.1
+// Generated 1/11/2016 06:37:57 PM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -12,33 +12,31 @@ import java.util.Set;
 public class Examen  implements java.io.Serializable {
 
 
-     private int idExamen;
+     private Integer idExamen;
      private Materias materias;
      private Date fecha;
-     private Set<Calificaciones> calificacioneses = new HashSet<Calificaciones>(0);
-     private Set<Preguntas> preguntases = new HashSet<Preguntas>(0);
+     private Set calificacioneses = new HashSet(0);
+     private Set preguntases = new HashSet(0);
 
     public Examen() {
     }
 
 	
-    public Examen(int idExamen, Materias materias) {
-        this.idExamen = idExamen;
+    public Examen(Materias materias) {
         this.materias = materias;
     }
-    public Examen(int idExamen, Materias materias, Date fecha, Set<Calificaciones> calificacioneses, Set<Preguntas> preguntases) {
-       this.idExamen = idExamen;
+    public Examen(Materias materias, Date fecha, Set calificacioneses, Set preguntases) {
        this.materias = materias;
        this.fecha = fecha;
        this.calificacioneses = calificacioneses;
        this.preguntases = preguntases;
     }
    
-    public int getIdExamen() {
+    public Integer getIdExamen() {
         return this.idExamen;
     }
     
-    public void setIdExamen(int idExamen) {
+    public void setIdExamen(Integer idExamen) {
         this.idExamen = idExamen;
     }
     public Materias getMaterias() {
@@ -55,18 +53,18 @@ public class Examen  implements java.io.Serializable {
     public void setFecha(Date fecha) {
         this.fecha = fecha;
     }
-    public Set<Calificaciones> getCalificacioneses() {
+    public Set getCalificacioneses() {
         return this.calificacioneses;
     }
     
-    public void setCalificacioneses(Set<Calificaciones> calificacioneses) {
+    public void setCalificacioneses(Set calificacioneses) {
         this.calificacioneses = calificacioneses;
     }
-    public Set<Preguntas> getPreguntases() {
+    public Set getPreguntases() {
         return this.preguntases;
     }
     
-    public void setPreguntases(Set<Preguntas> preguntases) {
+    public void setPreguntases(Set preguntases) {
         this.preguntases = preguntases;
     }
 

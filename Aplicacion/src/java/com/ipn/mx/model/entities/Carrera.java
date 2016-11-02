@@ -1,5 +1,5 @@
 package com.ipn.mx.model.entities;
-// Generated 1/11/2016 06:13:01 PM by Hibernate Tools 4.3.1
+// Generated 1/11/2016 06:37:57 PM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -11,33 +11,31 @@ import java.util.Set;
 public class Carrera  implements java.io.Serializable {
 
 
-     private int idCarrera;
+     private Integer idCarrera;
      private Centrodetrabajo centrodetrabajo;
      private String nombreCarrera;
      private Integer duracion;
-     private Set<Usuario> usuarios = new HashSet<Usuario>(0);
+     private Set usuarios = new HashSet(0);
 
     public Carrera() {
     }
 
 	
-    public Carrera(int idCarrera, Centrodetrabajo centrodetrabajo) {
-        this.idCarrera = idCarrera;
+    public Carrera(Centrodetrabajo centrodetrabajo) {
         this.centrodetrabajo = centrodetrabajo;
     }
-    public Carrera(int idCarrera, Centrodetrabajo centrodetrabajo, String nombreCarrera, Integer duracion, Set<Usuario> usuarios) {
-       this.idCarrera = idCarrera;
+    public Carrera(Centrodetrabajo centrodetrabajo, String nombreCarrera, Integer duracion, Set usuarios) {
        this.centrodetrabajo = centrodetrabajo;
        this.nombreCarrera = nombreCarrera;
        this.duracion = duracion;
        this.usuarios = usuarios;
     }
    
-    public int getIdCarrera() {
+    public Integer getIdCarrera() {
         return this.idCarrera;
     }
     
-    public void setIdCarrera(int idCarrera) {
+    public void setIdCarrera(Integer idCarrera) {
         this.idCarrera = idCarrera;
     }
     public Centrodetrabajo getCentrodetrabajo() {
@@ -61,11 +59,11 @@ public class Carrera  implements java.io.Serializable {
     public void setDuracion(Integer duracion) {
         this.duracion = duracion;
     }
-    public Set<Usuario> getUsuarios() {
+    public Set getUsuarios() {
         return this.usuarios;
     }
     
-    public void setUsuarios(Set<Usuario> usuarios) {
+    public void setUsuarios(Set usuarios) {
         this.usuarios = usuarios;
     }
 

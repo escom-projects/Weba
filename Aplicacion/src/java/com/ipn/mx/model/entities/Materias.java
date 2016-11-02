@@ -1,6 +1,5 @@
 package com.ipn.mx.model.entities;
-// Generated 1/11/2016 06:13:01 PM by Hibernate Tools 4.3.1
-
+// Generated 1/11/2016 06:37:57 PM by Hibernate Tools 4.3.1
 
 import java.util.HashSet;
 import java.util.Set;
@@ -11,33 +10,31 @@ import java.util.Set;
 public class Materias  implements java.io.Serializable {
 
 
-     private int idMaterias;
+     private Integer idMaterias;
      private Roles roles;
      private String nombreMateria;
      private Integer creditos;
-     private Set<Examen> examens = new HashSet<Examen>(0);
+     private Set examens = new HashSet(0);
 
     public Materias() {
     }
 
 	
-    public Materias(int idMaterias, Roles roles) {
-        this.idMaterias = idMaterias;
+    public Materias(Roles roles) {
         this.roles = roles;
     }
-    public Materias(int idMaterias, Roles roles, String nombreMateria, Integer creditos, Set<Examen> examens) {
-       this.idMaterias = idMaterias;
+    public Materias(Roles roles, String nombreMateria, Integer creditos, Set examens) {
        this.roles = roles;
        this.nombreMateria = nombreMateria;
        this.creditos = creditos;
        this.examens = examens;
     }
    
-    public int getIdMaterias() {
+    public Integer getIdMaterias() {
         return this.idMaterias;
     }
     
-    public void setIdMaterias(int idMaterias) {
+    public void setIdMaterias(Integer idMaterias) {
         this.idMaterias = idMaterias;
     }
     public Roles getRoles() {
@@ -61,16 +58,13 @@ public class Materias  implements java.io.Serializable {
     public void setCreditos(Integer creditos) {
         this.creditos = creditos;
     }
-    public Set<Examen> getExamens() {
+    public Set getExamens() {
         return this.examens;
     }
     
-    public void setExamens(Set<Examen> examens) {
+    public void setExamens(Set examens) {
         this.examens = examens;
     }
-
-
-
 
 }
 

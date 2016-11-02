@@ -1,19 +1,19 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 1/11/2016 06:13:03 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated 1/11/2016 06:37:57 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="com.ipn.mx.model.entities.Roles" table="roles" catalog="bdeducacion" optimistic-lock="version">
-        <id name="idRol" type="long">
+        <id name="idRol" type="java.lang.Long">
             <column name="idRol" />
-            <generator class="assigned" />
+            <generator class="identity" />
         </id>
         <property name="rol" type="string">
             <column name="rol" length="45" />
         </property>
         <set name="materiases" table="materias" inverse="true" lazy="true" fetch="select">
             <key>
-                <column name="roles_idRol" not-null="true" />
+                <column name="idRol" not-null="true" />
             </key>
             <one-to-many class="com.ipn.mx.model.entities.Materias" />
         </set>

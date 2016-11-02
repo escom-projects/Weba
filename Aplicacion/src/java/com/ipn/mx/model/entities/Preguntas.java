@@ -1,5 +1,5 @@
 package com.ipn.mx.model.entities;
-// Generated 1/11/2016 06:13:01 PM by Hibernate Tools 4.3.1
+// Generated 1/11/2016 06:37:57 PM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -11,31 +11,29 @@ import java.util.Set;
 public class Preguntas  implements java.io.Serializable {
 
 
-     private int idPregunta;
+     private Integer idPregunta;
      private Examen examen;
      private String pregunta;
-     private Set<Respuestas> respuestases = new HashSet<Respuestas>(0);
+     private Set respuestases = new HashSet(0);
 
     public Preguntas() {
     }
 
 	
-    public Preguntas(int idPregunta, Examen examen) {
-        this.idPregunta = idPregunta;
+    public Preguntas(Examen examen) {
         this.examen = examen;
     }
-    public Preguntas(int idPregunta, Examen examen, String pregunta, Set<Respuestas> respuestases) {
-       this.idPregunta = idPregunta;
+    public Preguntas(Examen examen, String pregunta, Set respuestases) {
        this.examen = examen;
        this.pregunta = pregunta;
        this.respuestases = respuestases;
     }
    
-    public int getIdPregunta() {
+    public Integer getIdPregunta() {
         return this.idPregunta;
     }
     
-    public void setIdPregunta(int idPregunta) {
+    public void setIdPregunta(Integer idPregunta) {
         this.idPregunta = idPregunta;
     }
     public Examen getExamen() {
@@ -52,11 +50,11 @@ public class Preguntas  implements java.io.Serializable {
     public void setPregunta(String pregunta) {
         this.pregunta = pregunta;
     }
-    public Set<Respuestas> getRespuestases() {
+    public Set getRespuestases() {
         return this.respuestases;
     }
     
-    public void setRespuestases(Set<Respuestas> respuestases) {
+    public void setRespuestases(Set respuestases) {
         this.respuestases = respuestases;
     }
 

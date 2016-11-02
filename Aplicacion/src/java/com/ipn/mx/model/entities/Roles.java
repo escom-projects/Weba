@@ -1,5 +1,5 @@
 package com.ipn.mx.model.entities;
-// Generated 1/11/2016 06:13:01 PM by Hibernate Tools 4.3.1
+// Generated 1/11/2016 06:37:57 PM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -11,30 +11,25 @@ import java.util.Set;
 public class Roles  implements java.io.Serializable {
 
 
-     private long idRol;
+     private Long idRol;
      private String rol;
-     private Set<Materias> materiases = new HashSet<Materias>(0);
-     private Set<Usuario> usuarios = new HashSet<Usuario>(0);
+     private Set materiases = new HashSet(0);
+     private Set usuarios = new HashSet(0);
 
     public Roles() {
     }
 
-	
-    public Roles(long idRol) {
-        this.idRol = idRol;
-    }
-    public Roles(long idRol, String rol, Set<Materias> materiases, Set<Usuario> usuarios) {
-       this.idRol = idRol;
+    public Roles(String rol, Set materiases, Set usuarios) {
        this.rol = rol;
        this.materiases = materiases;
        this.usuarios = usuarios;
     }
    
-    public long getIdRol() {
+    public Long getIdRol() {
         return this.idRol;
     }
     
-    public void setIdRol(long idRol) {
+    public void setIdRol(Long idRol) {
         this.idRol = idRol;
     }
     public String getRol() {
@@ -44,18 +39,18 @@ public class Roles  implements java.io.Serializable {
     public void setRol(String rol) {
         this.rol = rol;
     }
-    public Set<Materias> getMateriases() {
+    public Set getMateriases() {
         return this.materiases;
     }
     
-    public void setMateriases(Set<Materias> materiases) {
+    public void setMateriases(Set materiases) {
         this.materiases = materiases;
     }
-    public Set<Usuario> getUsuarios() {
+    public Set getUsuarios() {
         return this.usuarios;
     }
     
-    public void setUsuarios(Set<Usuario> usuarios) {
+    public void setUsuarios(Set usuarios) {
         this.usuarios = usuarios;
     }
 
