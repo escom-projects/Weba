@@ -5,7 +5,6 @@ import com.ipn.mx.model.entities.Centrodetrabajo;
 import com.ipn.mx.utilities.HibernateUtil;
 import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.List;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
