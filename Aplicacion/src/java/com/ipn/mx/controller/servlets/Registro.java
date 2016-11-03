@@ -1,7 +1,12 @@
 package com.ipn.mx.controller.servlets;
 
+import com.ipn.mx.model.dao.UsuarioDAO;
+import com.ipn.mx.model.entities.Roles;
+import com.ipn.mx.model.entities.Tipousuario;
+import com.ipn.mx.model.entities.Usuario;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.HashSet;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -24,19 +29,7 @@ public class Registro extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet Registro</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet Registro at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        }
+        registro(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -77,5 +70,32 @@ public class Registro extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
+
+    private void registro(HttpServletRequest request, HttpServletResponse response) {
+        long matricula = Long.parseLong(request.getParameter("matricula"));
+        String nombre = request.getParameter("nombre");
+        String ap_paterno_usuario = request.getParameter("ap_paterno_usuario");
+        String ap_materno_usuario = request.getParameter("ap_materno_usuario");
+        String correo_usuario = request.getParameter("correo_usuario");
+        String sexo = request.getParameter("sexo");
+        String fechaNacimiento = request.getParameter("fechaNacimiento");
+        String cp = request.getParameter("cp");
+        String calle = request.getParameter("calle");
+        String numero = request.getParameter("numero");
+        String colonia = request.getParameter("colonia");
+        String nombre_usuario = request.getParameter("nombre_usuario");
+        String clave_usuario = request.getParameter("clave_usuario");
+        String rol_usuario = request.getParameter("tipo_usuario");
+        
+        UsuarioDAO dao = new UsuarioDAO();
+        Roles roles = new Roles(rol_usuario, new HashSet(), new HashSet());
+        Tipousuario tipo = new Tipousuario();
+//        Usuario usuario = new Usuario(matricula, 
+//                new HashSet(), roles, nombre_usuario, 
+//                ap_materno_usuario, ap_materno_usuario, 
+//                fechaNacimiento, calle, colonia, Long.valueOf(numero), 
+//                Long.MIN_VALUE, Character.MAX_VALUE, 
+//                correo_usuario, new HashSet(), tipo);
+    }
 
 }

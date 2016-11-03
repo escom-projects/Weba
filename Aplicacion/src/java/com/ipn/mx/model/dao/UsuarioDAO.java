@@ -75,17 +75,40 @@ public class UsuarioDAO {
     public List<Usuario> readAll () {
         Session sesion = HibernateUtil.getSessionFactory().getCurrentSession();
         Transaction transaccion = sesion.getTransaction();
-        List<Usuario> lce = new ArrayList<>();
+        List<Usuario> lu = new ArrayList<>();
         try {
             transaccion.begin();
             Query query = sesion.createQuery("from Usuario");
-            lce = query.list();
+            lu = query.list();
             transaccion.commit();
         } catch (HibernateException e) {
             if (transaccion != null && transaccion.isActive()) {
                 transaccion.rollback();
             }
         }
-        return lce;
+        return lu;
+    }
+    
+    public List<Usuario> Login(Usuario u) {
+        Session sesion = HibernateUtil.getSessionFactory().getCurrentSession();
+        Transaction transaccion = sesion.getTransaction();
+        List<Usuario> users = new ArrayList<>();
+        String hql = "from Usuario as u "
+                + " where u.nombreUsuario =:nombreUsuario"
+                + " and u.claveUsuario =:claveUsuario";
+        try {
+            transaccion.begin();
+            Query q = sesion.createQuery(hql);
+            q.setParameter("nombreUsuario", u.getNombreUsuario());
+            q.setParameter("claveUsuario", u.getClaveUsuario());
+            users = q.list();
+            transaccion.commit();
+        } catch (HibernateException e) {
+            e.printStackTrace();
+            if (transaccion != null && transaccion.isActive()) {
+                transaccion.rollback();
+            }
+        }
+        return users;
     }
 }

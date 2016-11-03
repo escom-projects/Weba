@@ -32,9 +32,19 @@
                         <div class="panel-heading"><h3>Registro de usuarios</h3></div>
                         <div class="panel-body">
                             <form id="form-registro-clientes" action="Registro" method="post">
-                                <div id="campo-nombre" class="form-group">
-                                    <label for="nombre">Tu nombre: </label>
-                                    <input type="text" name="nombre" id="nombre" class="form-control" required />
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div id="campo-matricula" class="form-group">
+                                            <label for="matricula">Matricula: </label>
+                                            <input type="text" name="matricula" id="matricula" class="form-control" required />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div id="campo-nombre" class="form-group">
+                                            <label for="nombre">Tu nombre: </label>
+                                            <input type="text" name="nombre" id="nombre" class="form-control" required />
+                                        </div>
+                                    </div>
                                 </div>
                                 <div id="campo-apellido-paterno" class="form-group">
                                     <label for="ap_paterno_usuario">Apellido paterno: </label>
@@ -49,21 +59,26 @@
                                     <input type="text" name="correo_usuario" id="correo_usuario" class="form-control" required />
                                 </div>
                                 <div id="campo-sexo" class="form-group">
-                                    <label for="sexo">Sexo: </label>
-                                    <input type="text" name="sexo" id="sexo" class="form-control" required />
+                                    <label for="sexo">Sexo:&nbsp;&nbsp; </label>
+                                    <label><input type="radio" name="sexo" value="M" class="form-check-input" required>&nbsp;&nbsp;Masculino</label>
+                                    <label><input type="radio" name="sexo" value="F" class="form-check-input" required>&nbsp;&nbsp;Femenino</label>
                                 </div>
                                 <div class="row">
-                                    <div id="campo-fechaNacimiento" class="form-group col-md-4">
+                                    <div id="campo-fechaNacimiento" class="form-group col-md-3">
                                         <label for="fechaNacimiento">Fecha de nacimiento: </label>
                                         <input type="text" name="fechaNacimiento" id="fechaNacimiento" class="form-control" required />
                                     </div>
-                                    <div id="campo-cp" class="form-group col-md-4">
+                                    <div id="campo-cp" class="form-group col-md-3">
                                         <label for="cp">C&oacute;digo postal: </label>
                                         <input type="text" name="cp" id="cp" class="form-control" required />
                                     </div>
-                                    <div id="campo-calle" class="form-group col-md-4">
+                                    <div id="campo-calle" class="form-group col-md-3">
                                         <label for="calle">Calle: </label>
                                         <input type="text" name="calle" id="calle" class="form-control" required />
+                                    </div>
+                                    <div id="campo-numero" class="form-group col-md-3">
+                                        <label for="numero">N&uacute;mero: </label>
+                                        <input type="text" name="numero" id="numero" class="form-control" required />
                                     </div>
                                 </div>
                                 <div id="campo-colonia" class="form-group">
@@ -74,9 +89,23 @@
                                     <label for="nombre_usuario">Nombre de usuario: </label>
                                     <input type="text" name="nombre_usuario" id="nombre_usuario" class="form-control" required />
                                 </div>
-                                <div id="campo-clave-usuario" class="form-group">
-                                    <label for="clave_usuario">Clave de usuario: </label>
-                                    <input type="text" name="clave_usuario" id="clave_usuario" class="form-control" required />
+                                <div class="row">
+                                    <div class="col-md-4"></div>
+                                    <div class="col-md-4">
+                                        <div id="campo-clave-usuario" class="form-group">
+                                            <label for="clave_usuario">Clave de usuario: </label>
+                                            <input type="text" name="clave_usuario" id="clave_usuario" class="form-control" required />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div id="campo-tipo-usuario" class="form-group">
+                                            <label for="tipo_usuario">Clave de usuario: </label>
+                                            <select name="tipo_usuario" id="tipo_usuario" class="form-control">
+                                                <option value="Alumno">Alumno</option>
+                                                <option value="Profesor">Profesor</option>
+                                            </select>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div id="campo-terminos" class="checkbox">
                                     <label>
