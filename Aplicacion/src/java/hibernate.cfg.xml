@@ -14,7 +14,6 @@
     <mapping resource="com/ipn/mx/model/entities/Respuestas.hbm.xml"/>
     <mapping resource="com/ipn/mx/model/entities/Materias.hbm.xml"/>
     <mapping resource="com/ipn/mx/model/entities/Centrodetrabajo.hbm.xml"/>
-    <mapping resource="com/ipn/mx/model/entities/Roles.hbm.xml"/>
     <mapping resource="com/ipn/mx/model/entities/Calificaciones.hbm.xml"/>
     <mapping resource="com/ipn/mx/model/entities/Carrera.hbm.xml"/>
     <mapping resource="com/ipn/mx/model/entities/Preguntas.hbm.xml"/>

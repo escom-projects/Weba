@@ -1,5 +1,5 @@
 package com.ipn.mx.model.entities;
-// Generated 1/11/2016 06:37:57 PM by Hibernate Tools 4.3.1
+// Generated 2/11/2016 10:58:55 PM by Hibernate Tools 4.3.1
 
 
 

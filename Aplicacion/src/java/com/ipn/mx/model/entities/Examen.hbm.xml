@@ -1,26 +1,26 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 1/11/2016 06:37:57 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated 2/11/2016 10:58:55 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="com.ipn.mx.model.entities.Examen" table="examen" catalog="bdeducacion" optimistic-lock="version">
         <id name="idExamen" type="java.lang.Integer">
             <column name="idExamen" />
             <generator class="identity" />
         </id>
-        <many-to-one name="materias" class="com.ipn.mx.model.entities.Materias" fetch="select" cascade="all">
-            <column name="materias_idMaterias" not-null="true" />
+        <many-to-one name="materias" class="com.ipn.mx.model.entities.Materias" fetch="select">
+            <column name="idMaterias" not-null="true" />
         </many-to-one>
         <property name="fecha" type="date">
             <column name="fecha" length="10" />
         </property>
-        <set name="calificacioneses" table="calificaciones" inverse="true" lazy="true" fetch="select" cascade="all">
+        <set name="calificacioneses" table="calificaciones" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="idExamen" not-null="true" />
             </key>
             <one-to-many class="com.ipn.mx.model.entities.Calificaciones" />
         </set>
-        <set name="preguntases" table="preguntas" inverse="true" lazy="true" fetch="select" cascade="all">
+        <set name="preguntases" table="preguntas" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="idExamen" not-null="true" />
             </key>

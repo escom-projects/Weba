@@ -1,5 +1,6 @@
 package com.ipn.mx.model.entities;
-// Generated 1/11/2016 06:37:57 PM by Hibernate Tools 4.3.1
+// Generated 2/11/2016 10:58:55 PM by Hibernate Tools 4.3.1
+
 
 import java.util.HashSet;
 import java.util.Set;
@@ -11,22 +12,18 @@ public class Materias  implements java.io.Serializable {
 
 
      private Integer idMaterias;
-     private Roles roles;
      private String nombreMateria;
      private Integer creditos;
+     private Set usuarios = new HashSet(0);
      private Set examens = new HashSet(0);
 
     public Materias() {
     }
 
-	
-    public Materias(Roles roles) {
-        this.roles = roles;
-    }
-    public Materias(Roles roles, String nombreMateria, Integer creditos, Set examens) {
-       this.roles = roles;
+    public Materias(String nombreMateria, Integer creditos, Set usuarios, Set examens) {
        this.nombreMateria = nombreMateria;
        this.creditos = creditos;
+       this.usuarios = usuarios;
        this.examens = examens;
     }
    
@@ -36,13 +33,6 @@ public class Materias  implements java.io.Serializable {
     
     public void setIdMaterias(Integer idMaterias) {
         this.idMaterias = idMaterias;
-    }
-    public Roles getRoles() {
-        return this.roles;
-    }
-    
-    public void setRoles(Roles roles) {
-        this.roles = roles;
     }
     public String getNombreMateria() {
         return this.nombreMateria;
@@ -58,6 +48,13 @@ public class Materias  implements java.io.Serializable {
     public void setCreditos(Integer creditos) {
         this.creditos = creditos;
     }
+    public Set getUsuarios() {
+        return this.usuarios;
+    }
+    
+    public void setUsuarios(Set usuarios) {
+        this.usuarios = usuarios;
+    }
     public Set getExamens() {
         return this.examens;
     }
@@ -65,6 +62,9 @@ public class Materias  implements java.io.Serializable {
     public void setExamens(Set examens) {
         this.examens = examens;
     }
+
+
+
 
 }
 

@@ -1,18 +1,18 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 1/11/2016 06:37:57 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated 2/11/2016 10:58:55 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="com.ipn.mx.model.entities.Usuario" table="usuario" catalog="bdeducacion" optimistic-lock="version">
         <id name="matricula" type="long">
             <column name="matricula" />
             <generator class="assigned" />
         </id>
-        <many-to-one name="carrera" class="com.ipn.mx.model.entities.Carrera" fetch="select" cascade="all">
+        <many-to-one name="carrera" class="com.ipn.mx.model.entities.Carrera" fetch="select">
             <column name="idCarrera" />
         </many-to-one>
-        <many-to-one name="roles" class="com.ipn.mx.model.entities.Roles" fetch="select" cascade="all">
-            <column name="idRol" />
+        <many-to-one name="materias" class="com.ipn.mx.model.entities.Materias" fetch="select">
+            <column name="idMaterias" />
         </many-to-one>
         <property name="nombreUsuario" type="string">
             <column name="nombreUsuario" length="45" />
@@ -45,18 +45,18 @@
             <column name="eMail" length="45" />
         </property>
         <property name="nipUsuario" type="string">
-            <column name="nipUsuario" length="45" />
+            <column name="nipUsuario" length="45" not-null="true" />
         </property>
         <property name="claveUsuario" type="string">
-            <column name="claveUsuario" length="45" />
+            <column name="claveUsuario" length="45" not-null="true" />
         </property>
-        <set name="calificacioneses" table="calificaciones" inverse="true" lazy="true" fetch="select" cascade="all">
+        <set name="calificacioneses" table="calificaciones" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="matricula" not-null="true" />
             </key>
             <one-to-many class="com.ipn.mx.model.entities.Calificaciones" />
         </set>
-        <set name="tipousuarios" table="tipousuario" inverse="true" lazy="true" fetch="select" cascade="all">
+        <set name="tipousuarios" table="tipousuario" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="matricula" not-null="true" />
             </key>

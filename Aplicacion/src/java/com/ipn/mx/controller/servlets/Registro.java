@@ -1,7 +1,6 @@
 package com.ipn.mx.controller.servlets;
 
 import com.ipn.mx.model.dao.UsuarioDAO;
-import com.ipn.mx.model.entities.Roles;
 import com.ipn.mx.model.entities.Tipousuario;
 import com.ipn.mx.model.entities.Usuario;
 import java.io.IOException;
@@ -88,7 +87,7 @@ public class Registro extends HttpServlet {
         String rol_usuario = request.getParameter("tipo_usuario");
         
         UsuarioDAO dao = new UsuarioDAO();
-        Roles roles = new Roles(rol_usuario, new HashSet(), new HashSet());
+//        Roles roles = new Roles(rol_usuario, new HashSet(), new HashSet());
         Tipousuario tipo = new Tipousuario();
 //        Usuario usuario = new Usuario(matricula, 
 //                new HashSet(), roles, nombre_usuario, 

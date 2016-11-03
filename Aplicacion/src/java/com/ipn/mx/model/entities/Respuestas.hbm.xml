@@ -1,14 +1,14 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 1/11/2016 06:37:57 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated 2/11/2016 10:58:55 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="com.ipn.mx.model.entities.Respuestas" table="respuestas" catalog="bdeducacion" optimistic-lock="version">
         <id name="idRespuesta" type="java.lang.Integer">
             <column name="idRespuesta" />
             <generator class="identity" />
         </id>
-        <many-to-one name="preguntas" class="com.ipn.mx.model.entities.Preguntas" fetch="select" cascade="all">
+        <many-to-one name="preguntas" class="com.ipn.mx.model.entities.Preguntas" fetch="select">
             <column name="idPregunta" not-null="true" />
         </many-to-one>
         <property name="respuesta" type="string">
