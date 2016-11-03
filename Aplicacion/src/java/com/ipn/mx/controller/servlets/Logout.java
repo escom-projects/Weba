@@ -1,10 +1,8 @@
 package com.ipn.mx.controller.servlets;
 
-import com.ipn.mx.model.dao.UsuarioDAO;
-import com.ipn.mx.model.entities.Tipousuario;
-import com.ipn.mx.model.entities.Usuario;
 import com.ipn.mx.sessions.Sesion;
 import java.io.IOException;
+import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -15,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Usuario
  */
-public class Login extends HttpServlet {
+public class Logout extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -28,7 +26,14 @@ public class Login extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        login(request, response);
+        destruirSesionesUsuario(request, response);
+        try {
+            RequestDispatcher vista = request.
+                    getRequestDispatcher("index.html");
+            vista.forward(request, response);
+        } catch (ServletException | IOException ex) {
+            ex.printStackTrace();
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -70,51 +75,13 @@ public class Login extends HttpServlet {
         return "Short description";
     }// </editor-fold>
 
-    private void login(HttpServletRequest request, HttpServletResponse response) {
-        RequestDispatcher vista = null;
-        UsuarioDAO dao = new UsuarioDAO(); 
-        Usuario usuario = new Usuario();
-        String ruta;
-        int tipo;
-               
-        String nickUsuario = request.getParameter("inputNick");
-        String passUsuario = request.getParameter("inputPassword");
-
-        usuario.setNickUsuario(nickUsuario);
-        usuario.setClaveUsuario(passUsuario);
-        
-        Usuario readed = dao.Login(usuario).get(0); 
-        Tipousuario k = dao.getTipoUsuario(readed).get(0);
-        tipo = Integer.parseInt(k.getTipo());
+    private void destruirSesionesUsuario(HttpServletRequest request, HttpServletResponse response) {
         Sesion sesion = new Sesion();
-        sesion.crearSesion(request, response, "usuario", nickUsuario);
-        sesion.crearSesion(request, response, "clave", passUsuario);
-        
-        switch(tipo){
-            case 0:
-                //admin
-                ruta = "jsp/admin/menu-admin.jsp";
-            break;
-            case 1:
-                //profe
-                ruta = "jsp/profesor/menu-profesor.jsp";
-            break;
-            case 2:
-                //alumno
-                ruta = "jsp/alumno/menu-alumno.jsp";
-            break;
-            default:
-                //error
-                ruta = "jsp/Error.jsp?CodeError=1";
-            break;
+        if (sesion.isSession(request, response, "usuario")) {
+            sesion.destruirSesion(request, response, "usuario");
         }
-        try {
-            vista = request.
-                getRequestDispatcher("index.html");
-            vista.forward(request, response);
-        } catch (ServletException | IOException ex) {
-            ex.printStackTrace();
+        if (sesion.isSession(request, response, "clave")) {
+            sesion.destruirSesion(request, response, "clave");
         }
     }
-
 }

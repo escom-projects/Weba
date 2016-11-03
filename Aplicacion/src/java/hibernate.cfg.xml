@@ -7,6 +7,9 @@
     <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/bdeducacion</property>
     <property name="hibernate.connection.username">root</property>
     <property name="hibernate.connection.password">root</property>
+    <!--<property name="hibernate.connection.url">jdbc:mysql://sql9.freemysqlhosting.net:3306/sql9142851</property>
+    <property name="hibernate.connection.username">sql9142851</property>
+    <property name="hibernate.connection.password">LhchyP34w2</property>-->
     <property name="hibernate.current_session_context_class">thread</property>
     <property name="hibernate.show_sql">true</property>
     <property name="hibernate.query.factory_class">org.hibernate.hql.internal.classic.ClassicQueryTranslatorFactory</property>

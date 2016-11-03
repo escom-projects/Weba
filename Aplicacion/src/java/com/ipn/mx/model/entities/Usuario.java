@@ -1,5 +1,5 @@
 package com.ipn.mx.model.entities;
-// Generated 2/11/2016 10:58:55 PM by Hibernate Tools 4.3.1
+// Generated 2/11/2016 11:30:40 PM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -25,7 +25,7 @@ public class Usuario  implements java.io.Serializable {
      private Long codigoPostal;
      private Character sexo;
      private String email;
-     private String nipUsuario;
+     private String nickUsuario;
      private String claveUsuario;
      private Set calificacioneses = new HashSet(0);
      private Set tipousuarios = new HashSet(0);
@@ -34,12 +34,12 @@ public class Usuario  implements java.io.Serializable {
     }
 
 	
-    public Usuario(long matricula, String nipUsuario, String claveUsuario) {
+    public Usuario(long matricula, String nickUsuario, String claveUsuario) {
         this.matricula = matricula;
-        this.nipUsuario = nipUsuario;
+        this.nickUsuario = nickUsuario;
         this.claveUsuario = claveUsuario;
     }
-    public Usuario(long matricula, Carrera carrera, Materias materias, String nombreUsuario, String paternoUsuario, String maternoUsuario, Date fechaNacimiento, String calle, String colonia, Integer numero, Long codigoPostal, Character sexo, String email, String nipUsuario, String claveUsuario, Set calificacioneses, Set tipousuarios) {
+    public Usuario(long matricula, Carrera carrera, Materias materias, String nombreUsuario, String paternoUsuario, String maternoUsuario, Date fechaNacimiento, String calle, String colonia, Integer numero, Long codigoPostal, Character sexo, String email, String nickUsuario, String claveUsuario, Set calificacioneses, Set tipousuarios) {
        this.matricula = matricula;
        this.carrera = carrera;
        this.materias = materias;
@@ -53,7 +53,7 @@ public class Usuario  implements java.io.Serializable {
        this.codigoPostal = codigoPostal;
        this.sexo = sexo;
        this.email = email;
-       this.nipUsuario = nipUsuario;
+       this.nickUsuario = nickUsuario;
        this.claveUsuario = claveUsuario;
        this.calificacioneses = calificacioneses;
        this.tipousuarios = tipousuarios;
@@ -150,12 +150,12 @@ public class Usuario  implements java.io.Serializable {
     public void setEmail(String email) {
         this.email = email;
     }
-    public String getNipUsuario() {
-        return this.nipUsuario;
+    public String getNickUsuario() {
+        return this.nickUsuario;
     }
     
-    public void setNipUsuario(String nipUsuario) {
-        this.nipUsuario = nipUsuario;
+    public void setNickUsuario(String nickUsuario) {
+        this.nickUsuario = nickUsuario;
     }
     public String getClaveUsuario() {
         return this.claveUsuario;

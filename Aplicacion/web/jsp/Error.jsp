@@ -3,9 +3,9 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Menu de alumnos</title>
+        <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hola soy el alumno <%=request.getSession().getAttribute("usuario")%></h1>
+        <h1>Pagina de error.</h1>
     </body>
 </html>

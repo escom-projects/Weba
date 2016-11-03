@@ -12,10 +12,10 @@ import org.hibernate.Transaction;
 
 /**
  *
- * @author Usuario
+ * @author Tipousuario
  */
-public class UsuarioDAO {
-    public void create (Usuario u) {
+public class TipoUsuarioDAO {
+    public void create (Tipousuario u) {
         Session sesion = HibernateUtil.getSessionFactory().getCurrentSession();
         Transaction transaccion = sesion.getTransaction();
         try {
@@ -29,7 +29,7 @@ public class UsuarioDAO {
         }
     }
     
-    public void update (Usuario u) {
+    public void update (Tipousuario u) {
         Session sesion = HibernateUtil.getSessionFactory().getCurrentSession();
         Transaction transaccion = sesion.getTransaction();
         try {
@@ -43,7 +43,7 @@ public class UsuarioDAO {
         }
     }
     
-    public void delete (Usuario u) {
+    public void delete (Tipousuario u) {
         Session sesion = HibernateUtil.getSessionFactory().getCurrentSession();
         Transaction transaccion = sesion.getTransaction();
         try {
@@ -57,29 +57,32 @@ public class UsuarioDAO {
         }
     }
     
-    public Usuario read(Usuario u) {
-        Usuario read = null;
+    public String read(Tipousuario u) {
+        String tipo;
         Session sesion = HibernateUtil.getSessionFactory().getCurrentSession();
         Transaction transaccion = sesion.getTransaction();
         try {
             transaccion.begin();
-            read = (Usuario) sesion.get(u.getClass(), u.getClaveUsuario());
+            System.out.println("Imprime: " + u.getUsuario().getNickUsuario());
+            Tipousuario read = (Tipousuario) sesion.get(u.getClass(), u.getUsuario());
+            tipo = read.getTipo();
             transaccion.commit();
         } catch (HibernateException e) {
             if (transaccion != null && transaccion.isActive()) {
                 transaccion.rollback();
             }
+            tipo = null;
         }
-        return read;
+        return tipo;
     }
     
-    public List<Usuario> readAll () {
+    public List<Tipousuario> readAll () {
         Session sesion = HibernateUtil.getSessionFactory().getCurrentSession();
         Transaction transaccion = sesion.getTransaction();
-        List<Usuario> lu = new ArrayList<>();
+        List<Tipousuario> lu = new ArrayList<>();
         try {
             transaccion.begin();
-            Query query = sesion.createQuery("from Usuario");
+            Query query = sesion.createQuery("from Tipousuario");
             lu = query.list();
             transaccion.commit();
         } catch (HibernateException e) {
@@ -88,48 +91,5 @@ public class UsuarioDAO {
             }
         }
         return lu;
-    }
-    
-    public List<Usuario> Login(Usuario u) {
-        Session sesion = HibernateUtil.getSessionFactory().getCurrentSession();
-        Transaction transaccion = sesion.getTransaction();
-        List<Usuario> users = new ArrayList<>();
-        String hql = "from Usuario as u "
-                + " where u.nickUsuario =:nickUsuario"
-                + " and u.claveUsuario =:claveUsuario";
-        try {
-            transaccion.begin();
-            Query q = sesion.createQuery(hql);
-            q.setParameter("nickUsuario", u.getNickUsuario());
-            q.setParameter("claveUsuario", u.getClaveUsuario());
-            users = q.list();
-            transaccion.commit();
-        } catch (HibernateException e) {
-            e.printStackTrace();
-            if (transaccion != null && transaccion.isActive()) {
-                transaccion.rollback();
-            }
-        }
-        return users;
-    }
-    
-    public List<Tipousuario> getTipoUsuario(Usuario u) {
-        Session sesion = HibernateUtil.getSessionFactory().getCurrentSession();
-        Transaction transaccion = sesion.getTransaction();
-        String hql = "from Tipousuario as t where t.usuario.matricula = :usuario";
-        List<Tipousuario> tipos = new ArrayList<>();
-        try {
-            transaccion.begin();
-            Query q = sesion.createQuery(hql);
-            q.setParameter("usuario", u.getMatricula());
-            tipos = q.list();
-            transaccion.commit();
-        } catch (HibernateException e) {
-            e.printStackTrace();
-            if (transaccion != null && transaccion.isActive()) {
-                transaccion.rollback();
-            }
-        }
-        return tipos;
     }
 }
