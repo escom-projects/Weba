@@ -110,7 +110,7 @@ public class Login extends HttpServlet {
         }
         try {
             vista = request.
-                getRequestDispatcher("index.html");
+                getRequestDispatcher(ruta);
             vista.forward(request, response);
         } catch (ServletException | IOException ex) {
             ex.printStackTrace();
