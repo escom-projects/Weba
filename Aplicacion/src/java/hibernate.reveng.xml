@@ -12,3 +12,4 @@
   <table-filter match-name="calificaciones"/>
   <table-filter match-name="tipousuario"/>
 </hibernate-reverse-engineering>
+     
