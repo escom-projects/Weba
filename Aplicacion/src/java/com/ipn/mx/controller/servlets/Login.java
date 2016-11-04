@@ -85,7 +85,7 @@ public class Login extends HttpServlet {
         
         Usuario readed = dao.Login(usuario).get(0); 
         Tipousuario k = dao.getTipoUsuario(readed).get(0);
-        tipo = Integer.parseInt(k.getTipo());
+        tipo = k.getTipo();
         Sesion sesion = new Sesion();
         sesion.crearSesion(request, response, "usuario", nickUsuario);
         sesion.crearSesion(request, response, "clave", passUsuario);

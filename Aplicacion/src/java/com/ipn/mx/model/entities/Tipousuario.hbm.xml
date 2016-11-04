@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 2/11/2016 11:30:40 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated 4/11/2016 12:42:57 AM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-    <class name="com.ipn.mx.model.entities.Tipousuario" table="tipousuario" catalog="bdeducacion" optimistic-lock="version">
+    <class name="com.ipn.mx.model.entities.Tipousuario" table="tipousuario" catalog="program1_weba" optimistic-lock="version">
         <id name="idTipoUsuario" type="java.lang.Long">
             <column name="idTipoUsuario" />
             <generator class="identity" />
@@ -11,8 +11,8 @@
         <many-to-one name="usuario" class="com.ipn.mx.model.entities.Usuario" fetch="select">
             <column name="matricula" not-null="true" />
         </many-to-one>
-        <property name="tipo" type="string">
-            <column name="tipo" length="45" />
+        <property name="tipo" type="java.lang.Integer">
+            <column name="tipo" />
         </property>
     </class>
 </hibernate-mapping>

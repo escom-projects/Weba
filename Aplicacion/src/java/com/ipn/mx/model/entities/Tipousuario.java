@@ -1,5 +1,5 @@
 package com.ipn.mx.model.entities;
-// Generated 2/11/2016 11:30:40 PM by Hibernate Tools 4.3.1
+// Generated 4/11/2016 12:42:55 AM by Hibernate Tools 4.3.1
 
 
 
@@ -11,7 +11,7 @@ public class Tipousuario  implements java.io.Serializable {
 
      private Long idTipoUsuario;
      private Usuario usuario;
-     private String tipo;
+     private Integer tipo;
 
     public Tipousuario() {
     }
@@ -20,7 +20,7 @@ public class Tipousuario  implements java.io.Serializable {
     public Tipousuario(Usuario usuario) {
         this.usuario = usuario;
     }
-    public Tipousuario(Usuario usuario, String tipo) {
+    public Tipousuario(Usuario usuario, Integer tipo) {
        this.usuario = usuario;
        this.tipo = tipo;
     }
@@ -39,11 +39,11 @@ public class Tipousuario  implements java.io.Serializable {
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
     }
-    public String getTipo() {
+    public Integer getTipo() {
         return this.tipo;
     }
     
-    public void setTipo(String tipo) {
+    public void setTipo(Integer tipo) {
         this.tipo = tipo;
     }
 

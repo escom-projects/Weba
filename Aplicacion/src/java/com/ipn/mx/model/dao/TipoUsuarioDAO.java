@@ -57,13 +57,12 @@ public class TipoUsuarioDAO {
         }
     }
     
-    public String read(Tipousuario u) {
-        String tipo;
+    public int read(Tipousuario u) {
+        int tipo;
         Session sesion = HibernateUtil.getSessionFactory().getCurrentSession();
         Transaction transaccion = sesion.getTransaction();
         try {
             transaccion.begin();
-            System.out.println("Imprime: " + u.getUsuario().getNickUsuario());
             Tipousuario read = (Tipousuario) sesion.get(u.getClass(), u.getUsuario());
             tipo = read.getTipo();
             transaccion.commit();
@@ -71,7 +70,7 @@ public class TipoUsuarioDAO {
             if (transaccion != null && transaccion.isActive()) {
                 transaccion.rollback();
             }
-            tipo = null;
+            tipo = -1;
         }
         return tipo;
     }
