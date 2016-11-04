@@ -3,9 +3,13 @@ package com.ipn.mx.controller.servlets;
 import com.ipn.mx.model.dao.UsuarioDAO;
 import com.ipn.mx.model.entities.Tipousuario;
 import com.ipn.mx.model.entities.Usuario;
+import com.ipn.mx.utilities.Utilerias;
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.HashSet;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -71,30 +75,64 @@ public class Registro extends HttpServlet {
     }// </editor-fold>
 
     private void registro(HttpServletRequest request, HttpServletResponse response) {
-        long matricula = Long.parseLong(request.getParameter("matricula"));
-        String nombre = request.getParameter("nombre");
-        String ap_paterno_usuario = request.getParameter("ap_paterno_usuario");
-        String ap_materno_usuario = request.getParameter("ap_materno_usuario");
-        String correo_usuario = request.getParameter("correo_usuario");
-        String sexo = request.getParameter("sexo");
-        String fechaNacimiento = request.getParameter("fechaNacimiento");
-        String cp = request.getParameter("cp");
-        String calle = request.getParameter("calle");
-        String numero = request.getParameter("numero");
-        String colonia = request.getParameter("colonia");
-        String nombre_usuario = request.getParameter("nombre_usuario");
-        String clave_usuario = request.getParameter("clave_usuario");
-        String rol_usuario = request.getParameter("tipo_usuario");
+        try {
+            Utilerias correo = new Utilerias();
+            DateFormat formatoFechaNacimiento = new SimpleDateFormat("yyyy-MM-dd");
+            long matricula = Long.parseLong(request.getParameter("matricula"));
+            String nombreUsuario = request.getParameter("nombre");
+            String ap_paterno_usuario = request.getParameter("ap_paterno_usuario");
+            String ap_materno_usuario = request.getParameter("ap_materno_usuario");
+            String correo_usuario = request.getParameter("correo_usuario");
+            String sexo = request.getParameter("sexo");
+            String fechaNacimiento = request.getParameter("fechaNacimiento");
+            String cp = request.getParameter("cp");
+            String calle = request.getParameter("calle");
+            String numero = request.getParameter("numero");
+            String colonia = request.getParameter("colonia");
+            String nick_usuario = request.getParameter("nombre_usuario");
+            String clave_usuario = request.getParameter("clave_usuario");
+            String rol_usuario = request.getParameter("tipo_usuario"); //Profesor - Alumno
+            
+            UsuarioDAO dao = new UsuarioDAO();
+            HashSet<Tipousuario> tipos = new HashSet<>();
+            Tipousuario tipo = new Tipousuario();
+            if (rol_usuario.equals("Alumno")) {
+                tipo.setTipo(2);
+            } else if (rol_usuario.equals("Profesor")) {
+                tipo.setTipo(1);
+            }
+            Usuario usuario = new Usuario(matricula, null, null,
+                    nombreUsuario, ap_paterno_usuario, ap_materno_usuario,
+                    null, calle, colonia, null, null,
+                    null, correo_usuario, nick_usuario, clave_usuario,
+                    new HashSet(), new HashSet());
+            usuario.setFechaNacimiento(formatoFechaNacimiento.parse(fechaNacimiento));
+            usuario.setNumero(Integer.valueOf(numero));
+            usuario.setCodigoPostal(Long.valueOf(cp));
+            usuario.setSexo(sexo.charAt(0));
+            usuario.setTipousuarios(tipos);
+            tipo.setUsuario(usuario);
+            tipos.add(tipo);
+            dao.guardar(usuario);
+            if (!correo.enviarMail(correo_usuario, sexo, rol_usuario)) {
+                
+            } else {
+                redireccionar(request, response);
+            }
+        } catch (ParseException ex) {
+            System.out.println("Error de parseo de datos: " + ex.getMessage());
+        }
         
-        UsuarioDAO dao = new UsuarioDAO();
-//        Roles roles = new Roles(rol_usuario, new HashSet(), new HashSet());
-        Tipousuario tipo = new Tipousuario();
-//        Usuario usuario = new Usuario(matricula, 
-//                new HashSet(), roles, nombre_usuario, 
-//                ap_materno_usuario, ap_materno_usuario, 
-//                fechaNacimiento, calle, colonia, Long.valueOf(numero), 
-//                Long.MIN_VALUE, Character.MAX_VALUE, 
-//                correo_usuario, new HashSet(), tipo);
+    }
+
+    private void redireccionar(HttpServletRequest request, HttpServletResponse response) {
+        try {
+            RequestDispatcher vista = request.
+                    getRequestDispatcher("jsp/ExitRegister.jsp?success=true");
+            vista.forward(request, response);
+        } catch (ServletException | IOException ex) {
+            System.out.println("Ha ocurrido un error de redireccion de vista: " + ex.getMessage());
+        }
     }
 
 }

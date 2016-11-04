@@ -45,7 +45,7 @@ public class Utilerias {
             m.setContent(multipart);
             //Proceso de envio de correo y cierre
             Transport t = sesion.getTransport("smtp");
-            t.connect("rafaellanda.landa4@gmail.com", "kjjdskjskdj");
+            t.connect("rafaellanda.landa4@gmail.com", "password");
             t.sendMessage(m, m.getAllRecipients());
             t.close();
         } catch (Exception e) {

@@ -1,7 +1,6 @@
 package com.ipn.mx.model.dao;
 
 import com.ipn.mx.model.entities.Tipousuario;
-import com.ipn.mx.model.entities.Usuario;
 import com.ipn.mx.utilities.HibernateUtil;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,7 +14,7 @@ import org.hibernate.Transaction;
  * @author Tipousuario
  */
 public class TipoUsuarioDAO {
-    public void create (Tipousuario u) {
+    public void guardar (Tipousuario u) {
         Session sesion = HibernateUtil.getSessionFactory().getCurrentSession();
         Transaction transaccion = sesion.getTransaction();
         try {

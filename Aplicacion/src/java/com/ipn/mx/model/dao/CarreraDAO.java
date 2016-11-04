@@ -14,7 +14,7 @@ import org.hibernate.Transaction;
  * @author Usuario
  */
 public class CarreraDAO {
-    public void create (Carrera ce) {
+    public void guardar (Carrera ce) {
         Session sesion = HibernateUtil.getSessionFactory().getCurrentSession();
         Transaction transaccion = sesion.getTransaction();
         try {

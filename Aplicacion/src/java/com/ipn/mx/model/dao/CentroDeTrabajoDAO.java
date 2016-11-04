@@ -16,7 +16,7 @@ import org.hibernate.Transaction;
  * @author Centrodetrabajo
  */
 public class CentroDeTrabajoDAO {
-    public void create (Centrodetrabajo ce) {
+    public void guardar (Centrodetrabajo ce) {
         Session sesion = HibernateUtil.getSessionFactory().getCurrentSession();
         Transaction transaccion = sesion.getTransaction();
         try {
@@ -101,7 +101,7 @@ public class CentroDeTrabajoDAO {
         ce.setCarreras(carreras);
         if (!carreras.isEmpty()) {
             ce.setCarreras(carreras);
-            dao.create(ce);
+            dao.guardar(ce);
         }
     }
 }
