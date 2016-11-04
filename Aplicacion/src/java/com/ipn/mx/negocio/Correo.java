@@ -265,14 +265,14 @@ public class Correo {
         correo.setMAIL_SERVER_HOST("smtp.gmail.com");
         correo.setInitTLSProtocol(true);
         correo.setPORT(587);
-        correo.setUsuario("rafaellanda.landa4@gmail.com");
+        correo.setUsuario("correo");
         correo.setAutenticacion(true);
         
         correo.configuracionDatos();
         correo.crearSession();
         
         correo.setAsunto("Proceso de registro de usuario");
-        correo.setCorreoDestinatario("rafaellanda.landa4@gmail.com");
+        correo.setCorreoDestinatario("correo");
         StringBuilder textoDelCorreo = new StringBuilder();
         textoDelCorreo.append("Su registro fue exitoso.\n").append("Usuario: Hola\n").append("Contrasena: como estas\n");
         correo.armarMensaje(textoDelCorreo, "text");

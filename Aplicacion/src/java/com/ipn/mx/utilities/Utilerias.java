@@ -28,7 +28,7 @@ public class Utilerias {
             p.setProperty("mail.smtp.host", "smtp.gmail.com");
             p.setProperty("mail.smtp.starttls.enable", "true");
             p.setProperty("mail.smtp.port", "587");
-            p.setProperty("mail.smtp.user", "rafaellanda.landa4@gmail.com");
+            p.setProperty("mail.smtp.user", "correo");
             p.setProperty("mail.smtp.auth", "true");
             //Creacion de la sesion de usuario
             Session sesion = Session.getDefaultInstance(p);
@@ -59,7 +59,7 @@ public class Utilerias {
     
 //    public static void main(String[] args) {
 //        Utilerias utils = new Utilerias();
-//        String correoDestinatario = "rafaellanda.landa4@gmail.com";
+//        String correoDestinatario = "correo";
 //        String asunto = "Proceso de registro de usuario";
 //        String textoDelCorreo = "Su registro fue exitoso.\n" +
 //                "Usuario: Hola\n" +
