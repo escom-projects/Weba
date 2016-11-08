@@ -1,5 +1,5 @@
 package com.ipn.mx.model.entities;
-// Generated 4/11/2016 12:42:55 AM by Hibernate Tools 4.3.1
+// Generated 8/11/2016 12:07:37 AM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -14,7 +14,8 @@ public class Preguntas  implements java.io.Serializable {
      private Integer idPregunta;
      private Examen examen;
      private String pregunta;
-     private Set respuestases = new HashSet(0);
+     private Integer estadoPregunta;
+     private Set<Respuestas> respuestases = new HashSet<Respuestas>(0);
 
     public Preguntas() {
     }
@@ -23,9 +24,10 @@ public class Preguntas  implements java.io.Serializable {
     public Preguntas(Examen examen) {
         this.examen = examen;
     }
-    public Preguntas(Examen examen, String pregunta, Set respuestases) {
+    public Preguntas(Examen examen, String pregunta, Integer estadoPregunta, Set<Respuestas> respuestases) {
        this.examen = examen;
        this.pregunta = pregunta;
+       this.estadoPregunta = estadoPregunta;
        this.respuestases = respuestases;
     }
    
@@ -50,11 +52,18 @@ public class Preguntas  implements java.io.Serializable {
     public void setPregunta(String pregunta) {
         this.pregunta = pregunta;
     }
-    public Set getRespuestases() {
+    public Integer getEstadoPregunta() {
+        return this.estadoPregunta;
+    }
+    
+    public void setEstadoPregunta(Integer estadoPregunta) {
+        this.estadoPregunta = estadoPregunta;
+    }
+    public Set<Respuestas> getRespuestases() {
         return this.respuestases;
     }
     
-    public void setRespuestases(Set respuestases) {
+    public void setRespuestases(Set<Respuestas> respuestases) {
         this.respuestases = respuestases;
     }
 

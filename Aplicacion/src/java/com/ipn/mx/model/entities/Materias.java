@@ -1,5 +1,5 @@
 package com.ipn.mx.model.entities;
-// Generated 4/11/2016 12:42:55 AM by Hibernate Tools 4.3.1
+// Generated 8/11/2016 12:07:37 AM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -14,13 +14,13 @@ public class Materias  implements java.io.Serializable {
      private Integer idMaterias;
      private String nombreMateria;
      private Integer creditos;
-     private Set usuarios = new HashSet(0);
-     private Set examens = new HashSet(0);
+     private Set<Usuario> usuarios = new HashSet<Usuario>(0);
+     private Set<Examen> examens = new HashSet<Examen>(0);
 
     public Materias() {
     }
 
-    public Materias(String nombreMateria, Integer creditos, Set usuarios, Set examens) {
+    public Materias(String nombreMateria, Integer creditos, Set<Usuario> usuarios, Set<Examen> examens) {
        this.nombreMateria = nombreMateria;
        this.creditos = creditos;
        this.usuarios = usuarios;
@@ -48,18 +48,18 @@ public class Materias  implements java.io.Serializable {
     public void setCreditos(Integer creditos) {
         this.creditos = creditos;
     }
-    public Set getUsuarios() {
+    public Set<Usuario> getUsuarios() {
         return this.usuarios;
     }
     
-    public void setUsuarios(Set usuarios) {
+    public void setUsuarios(Set<Usuario> usuarios) {
         this.usuarios = usuarios;
     }
-    public Set getExamens() {
+    public Set<Examen> getExamens() {
         return this.examens;
     }
     
-    public void setExamens(Set examens) {
+    public void setExamens(Set<Examen> examens) {
         this.examens = examens;
     }
 

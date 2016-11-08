@@ -1,5 +1,5 @@
 package com.ipn.mx.model.entities;
-// Generated 4/11/2016 12:42:55 AM by Hibernate Tools 4.3.1
+// Generated 8/11/2016 12:07:37 AM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -14,9 +14,10 @@ public class Examen  implements java.io.Serializable {
 
      private Integer idExamen;
      private Materias materias;
-     private Date fecha;
-     private Set calificacioneses = new HashSet(0);
-     private Set preguntases = new HashSet(0);
+     private Date fechaActualizacion;
+     private Date fechaRealizacion;
+     private Set<Calificaciones> calificacioneses = new HashSet<Calificaciones>(0);
+     private Set<Preguntas> preguntases = new HashSet<Preguntas>(0);
 
     public Examen() {
     }
@@ -25,9 +26,10 @@ public class Examen  implements java.io.Serializable {
     public Examen(Materias materias) {
         this.materias = materias;
     }
-    public Examen(Materias materias, Date fecha, Set calificacioneses, Set preguntases) {
+    public Examen(Materias materias, Date fechaActualizacion, Date fechaRealizacion, Set<Calificaciones> calificacioneses, Set<Preguntas> preguntases) {
        this.materias = materias;
-       this.fecha = fecha;
+       this.fechaActualizacion = fechaActualizacion;
+       this.fechaRealizacion = fechaRealizacion;
        this.calificacioneses = calificacioneses;
        this.preguntases = preguntases;
     }
@@ -46,25 +48,32 @@ public class Examen  implements java.io.Serializable {
     public void setMaterias(Materias materias) {
         this.materias = materias;
     }
-    public Date getFecha() {
-        return this.fecha;
+    public Date getFechaActualizacion() {
+        return this.fechaActualizacion;
     }
     
-    public void setFecha(Date fecha) {
-        this.fecha = fecha;
+    public void setFechaActualizacion(Date fechaActualizacion) {
+        this.fechaActualizacion = fechaActualizacion;
     }
-    public Set getCalificacioneses() {
+    public Date getFechaRealizacion() {
+        return this.fechaRealizacion;
+    }
+    
+    public void setFechaRealizacion(Date fechaRealizacion) {
+        this.fechaRealizacion = fechaRealizacion;
+    }
+    public Set<Calificaciones> getCalificacioneses() {
         return this.calificacioneses;
     }
     
-    public void setCalificacioneses(Set calificacioneses) {
+    public void setCalificacioneses(Set<Calificaciones> calificacioneses) {
         this.calificacioneses = calificacioneses;
     }
-    public Set getPreguntases() {
+    public Set<Preguntas> getPreguntases() {
         return this.preguntases;
     }
     
-    public void setPreguntases(Set preguntases) {
+    public void setPreguntases(Set<Preguntas> preguntases) {
         this.preguntases = preguntases;
     }
 

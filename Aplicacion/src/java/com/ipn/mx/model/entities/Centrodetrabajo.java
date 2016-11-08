@@ -1,5 +1,5 @@
 package com.ipn.mx.model.entities;
-// Generated 4/11/2016 12:42:55 AM by Hibernate Tools 4.3.1
+// Generated 8/11/2016 12:07:37 AM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -13,12 +13,12 @@ public class Centrodetrabajo  implements java.io.Serializable {
 
      private Integer idcentrodetrabajo;
      private String nombreCentroDeTrabajo;
-     private Set carreras = new HashSet(0);
+     private Set<Carrera> carreras = new HashSet<Carrera>(0);
 
     public Centrodetrabajo() {
     }
 
-    public Centrodetrabajo(String nombreCentroDeTrabajo, Set carreras) {
+    public Centrodetrabajo(String nombreCentroDeTrabajo, Set<Carrera> carreras) {
        this.nombreCentroDeTrabajo = nombreCentroDeTrabajo;
        this.carreras = carreras;
     }
@@ -37,11 +37,11 @@ public class Centrodetrabajo  implements java.io.Serializable {
     public void setNombreCentroDeTrabajo(String nombreCentroDeTrabajo) {
         this.nombreCentroDeTrabajo = nombreCentroDeTrabajo;
     }
-    public Set getCarreras() {
+    public Set<Carrera> getCarreras() {
         return this.carreras;
     }
     
-    public void setCarreras(Set carreras) {
+    public void setCarreras(Set<Carrera> carreras) {
         this.carreras = carreras;
     }
 
