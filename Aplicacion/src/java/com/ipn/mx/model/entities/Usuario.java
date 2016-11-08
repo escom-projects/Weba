@@ -1,5 +1,5 @@
 package com.ipn.mx.model.entities;
-// Generated 4/11/2016 12:42:55 AM by Hibernate Tools 4.3.1
+// Generated 8/11/2016 12:07:37 AM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -27,8 +27,8 @@ public class Usuario  implements java.io.Serializable {
      private String email;
      private String nickUsuario;
      private String claveUsuario;
-     private Set calificacioneses = new HashSet(0);
-     private Set tipousuarios = new HashSet(0);
+     private Set<Calificaciones> calificacioneses = new HashSet<Calificaciones>(0);
+     private Set<Tipousuario> tipousuarios = new HashSet<Tipousuario>(0);
 
     public Usuario() {
     }
@@ -39,7 +39,7 @@ public class Usuario  implements java.io.Serializable {
         this.nickUsuario = nickUsuario;
         this.claveUsuario = claveUsuario;
     }
-    public Usuario(long matricula, Carrera carrera, Materias materias, String nombreUsuario, String paternoUsuario, String maternoUsuario, Date fechaNacimiento, String calle, String colonia, Integer numero, Long codigoPostal, Character sexo, String email, String nickUsuario, String claveUsuario, Set calificacioneses, Set tipousuarios) {
+    public Usuario(long matricula, Carrera carrera, Materias materias, String nombreUsuario, String paternoUsuario, String maternoUsuario, Date fechaNacimiento, String calle, String colonia, Integer numero, Long codigoPostal, Character sexo, String email, String nickUsuario, String claveUsuario, Set<Calificaciones> calificacioneses, Set<Tipousuario> tipousuarios) {
        this.matricula = matricula;
        this.carrera = carrera;
        this.materias = materias;
@@ -164,18 +164,18 @@ public class Usuario  implements java.io.Serializable {
     public void setClaveUsuario(String claveUsuario) {
         this.claveUsuario = claveUsuario;
     }
-    public Set getCalificacioneses() {
+    public Set<Calificaciones> getCalificacioneses() {
         return this.calificacioneses;
     }
     
-    public void setCalificacioneses(Set calificacioneses) {
+    public void setCalificacioneses(Set<Calificaciones> calificacioneses) {
         this.calificacioneses = calificacioneses;
     }
-    public Set getTipousuarios() {
+    public Set<Tipousuario> getTipousuarios() {
         return this.tipousuarios;
     }
     
-    public void setTipousuarios(Set tipousuarios) {
+    public void setTipousuarios(Set<Tipousuario> tipousuarios) {
         this.tipousuarios = tipousuarios;
     }
 
