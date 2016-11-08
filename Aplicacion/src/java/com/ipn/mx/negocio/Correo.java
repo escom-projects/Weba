@@ -242,7 +242,7 @@ public class Correo {
         envio = null;
         try {
             envio = sesion.getTransport(getProtocolo());
-            envio.connect(getUsuario(), getPassword());
+            //envio.connect(getUsuario(), getPassword());
             envio.sendMessage(mensajeToSend, mensajeToSend.getAllRecipients());
         } catch (NoSuchProviderException ex) {
             System.out.println("Error al configurar protocolo: " + ex.getMessage());
