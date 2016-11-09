@@ -12,6 +12,10 @@
         <servlet-name>Logout</servlet-name>
         <servlet-class>com.ipn.mx.controller.servlets.Logout</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Redirect</servlet-name>
+        <servlet-class>com.ipn.mx.controller.servlets.Redirect</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/Login</url-pattern>
@@ -23,6 +27,10 @@
     <servlet-mapping>
         <servlet-name>Logout</servlet-name>
         <url-pattern>/Logout</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Redirect</servlet-name>
+        <url-pattern>/Redirect</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

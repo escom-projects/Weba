@@ -4,6 +4,7 @@ import com.ipn.mx.model.dao.UsuarioDAO;
 import com.ipn.mx.model.entities.Tipousuario;
 import com.ipn.mx.model.entities.Usuario;
 import com.ipn.mx.sessions.Sesion;
+import com.ipn.mx.sessions.User;
 import java.io.IOException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -71,7 +72,7 @@ public class Login extends HttpServlet {
     }// </editor-fold>
 
     private void login(HttpServletRequest request, HttpServletResponse response) {
-        RequestDispatcher vista = null;
+        RequestDispatcher vista;
         UsuarioDAO dao = new UsuarioDAO(); 
         Usuario usuario = new Usuario();
         String ruta;
@@ -89,18 +90,20 @@ public class Login extends HttpServlet {
         Sesion sesion = new Sesion();
         sesion.crearSesion(request, response, "usuario", nickUsuario);
         sesion.crearSesion(request, response, "clave", passUsuario);
-        
         switch(tipo){
             case 0:
                 //admin
+                sesion.crearSesion(request, response, "User-Type", User.ADMIN);
                 ruta = "jsp/admin/menu-admin.jsp";
             break;
             case 1:
                 //profe
+                sesion.crearSesion(request, response, "User-Type", User.PROFESOR);
                 ruta = "jsp/profesor/menu-profesor.jsp";
             break;
             case 2:
                 //alumno
+                sesion.crearSesion(request, response, "User-Type", User.ALUMNO);
                 ruta = "jsp/alumno/menu-alumno.jsp";
             break;
             default:

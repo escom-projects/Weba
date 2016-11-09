@@ -1,9 +1,8 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Menu Profesores</title>
+        <title>Menu Administrador</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <link href="css/ie10-viewport-bug-workaround.css" rel="stylesheet">
@@ -22,12 +21,13 @@
                 </div>
                 <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="nav navbar-nav">
-                        <li><a href="/alumno/menu-profesor.jsp">Home</a></li>
+                        <li><a href="#">Home</a></li>
                         <li class="active"><a href="#">Materias</a></li>
-                        <li><a href="#">Ex&aacute;menes</a></li>
+                        <li><a href="#">Profesores</a></li>
+                        <li><a href="#">Alumnos</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Alumno</a></li>
+                        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Administrador</a></li>
                         <li><a href="Logout"><span class="glyphicon glyphicon-log-in"></span> Salir</a></li>
                     </ul>
                 </div>
@@ -56,10 +56,20 @@
                                         <div class="media">
                                             <div class="media-left">
                                                 <div class="col-xs-6 col-md-3">
-                                                    <img src="imagenes/tests.png" alt="Examenes" height="30px" width="auto" />
+                                                    <img src="imagenes/student_hat_1.png" alt="Profesores" height="30px" width="auto" />
                                                 </div>
                                             </div>
-                                            <div class="media-body">Ex&aacute;menes</div>
+                                            <div class="media-body">Profesores</div>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="list-group-item">
+                                        <div class="media">
+                                            <div class="media-left">
+                                                <div class="col-xs-6 col-md-3">
+                                                    <img src="imagenes/student_hat_1.png" alt="Alumnos" height="30px" width="auto" />
+                                                </div>
+                                            </div>
+                                            <div class="media-body">Alumnos</div>
                                         </div>
                                     </a>
                                 </div>

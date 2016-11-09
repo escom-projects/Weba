@@ -18,12 +18,25 @@ public class Sesion { 	// Crea una clase publica llamada ClaseSimple
 	 *  @param response: HttpServletResponse
          *  @param attr
 	 *  @param dato: String
-	 *  @return void
-	 *  Crea una sesion de tipo HttpSession
-	 *  Se añade a la variable de sesion un nombre constante de tipo String
-	 *  con un valor dato: String
 	 */
 	public void crearSesion (HttpServletRequest request, HttpServletResponse response, String attr, String dato) {
+                DATOS = attr;
+		HttpSession sesion = request.getSession(true); 	// Se asigna a una variable sesion 
+                                                                // de tipo HttpSession una sesion nueva 
+                                                                // para crear una sesion se pone como 
+                                                                // parámetro true.
+                sesion.setAttribute(DATOS, dato);   // Se asigna un nuevo atributo de sesion 
+                                                    // con el nombre DATOS, con el valor dato de tipo 
+                                                    // string
+	}
+        
+        /**
+	 *  @param request: HttpServletRequest
+	 *  @param response: HttpServletResponse
+         *  @param attr
+	 *  @param dato: Object
+	 */
+	public void crearSesion (HttpServletRequest request, HttpServletResponse response, String attr, Object dato) {
                 DATOS = attr;
 		HttpSession sesion = request.getSession(true); 	// Se asigna a una variable sesion 
                                                                 // de tipo HttpSession una sesion nueva 
@@ -38,7 +51,6 @@ public class Sesion { 	// Crea una clase publica llamada ClaseSimple
 	 *  @param request: HttpServletRequest
 	 *  @param response: HttpServletResponse
          *  @param attr
-	 *  @return void
 	 *  
 	 */
 	public void destruirSesion (HttpServletRequest request, HttpServletResponse response, String attr) {
