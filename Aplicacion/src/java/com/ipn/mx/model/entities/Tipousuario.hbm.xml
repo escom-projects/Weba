@@ -8,7 +8,7 @@
             <column name="idTipoUsuario" />
             <generator class="identity" />
         </id>
-        <many-to-one name="usuario" class="com.ipn.mx.model.entities.Usuario" fetch="select">
+        <many-to-one name="usuario" class="com.ipn.mx.model.entities.Usuario" fetch="select" cascade="all">
             <column name="matricula" not-null="true" />
         </many-to-one>
         <property name="tipo" type="java.lang.Integer">
