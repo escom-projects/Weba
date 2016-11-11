@@ -7,14 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <link href="css/ie10-viewport-bug-workaround.css" rel="stylesheet">
-        <link href="css/signin.css" rel="stylesheet">
-        
-        <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
-        <script src="js/ie-emulation-modes-warning.js"></script>
-        <script type="text/javascript" src="js/bootstrap.min.js"></script>
-        <script type="text/javascript" src="js/jquery/jquery-1.10.2.min.js"></script>
-        <script type="text/javascript" src="//code.jquery.com/jquery-1.10.2.min.js"></script>
-        
+        <link href="css/menu_admin.css" rel="stylesheet">
     </head>
     <body>
         <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -29,89 +22,102 @@
                 </div>
                 <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="nav navbar-nav">
-                        <li><a href="#">Home</a></li>
-                        <li class="active"><a href="#">Materias</a></li>
-                        <li><a href="#">Profesores</a></li>
-                        <li><a href="#">Alumnos</a></li>
+                        <li><a href="Redirect?pagina=menu-admin.jsp">Home</a></li>
+                        <li><a href="Redirect?pagina=materias.jsp">Materias</a></li>
+                        <li><a href="Redirect?pagina=profesores.jsp">Profesores</a></li>
+                        <li class="active"><a href="Redirect?pagina=alumnos.jsp">Alumnos</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Administrador</a></li>
+                        <li><a href="Redirect?pagina=menu-admin.jsp"><span class="glyphicon glyphicon-user"></span> Administrador</a></li>
                         <li><a href="Logout"><span class="glyphicon glyphicon-log-in"></span> Salir</a></li>
                     </ul>
                 </div>
             </div>
         </nav>
         <div class="container">
-            <br><br>
-            <div class="alert alert-info" role="alert">¡Bienvenido, <%=request.getSession().getAttribute("usuario")%>!</div>
-            <div class="row clearfix">
-                <div class="col-md-12 column">
-                    <table class="table table-bordered table-hover" id="tab_logic">
-                        <thead>
-                            <tr >
-                                <th class="text-center">
-                                    #
-                                </th>
-                                <th class="text-center">
-                                    Materia
-                                </th>
-
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr id='addr0'>
-                                <td>
-                                1
-                                </td>
-                                <td>
-                                    <input type="text" name='name0'  placeholder='Nombre de materia' class="form-control"/>
-                                </td>
-                            </tr>
-                            <tr id='addr1'></tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            <a class="btn btn-default pull-left btn-primary">Actualizar</a>
-            <a id='delete_row' class="pull-right btn btn-default">Borrar materia</a><a id="add_row" class="btn btn-default pull-right">Agregar otra materia</a>
-            <br><br><br>
-            <div class="well">
+            <br><br><br><br>
+            <div class="panel panel-default">
+                <div class="panel-heading">Lista de Alumnos</div>
                 <table class="table">
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>First Name</th>
-                            <th>Last Name</th>
-                            <th>Username</th>
-                            <th style="width: 36px;"></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Mark</td>
-                            <td>Tompson</td>
-                            <td>the_mark7</td>
-                            <td>
-                                <a href="user.html"><i class="icon-pencil"></i></a>
-                                <a href="#myModal" role="button" data-toggle="modal"><i class="icon-remove"></i></a>
-                            </td>
-                        </tr>
-                    </tbody>
+                  <tr>
+                    <th>#</th>
+                    <th>Alumno</th> 
+                    <th>Asignar materia</th> 
+                    <th>Eliminar materia</th> 
+                  </tr>
+                  <tr>
+                    <td>1</td>
+                    <td>Alumno</td> 
+                    <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModalA">Añadir</button></td>
+                    <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModalE">Eliminar</button></td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>Oyente</td> 
+                    <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModalA">Añadir</button></td>
+                    <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModalE">Eliminar</button></td>
+                  </tr>
                 </table>
             </div>
-            <div class="pagination">
-                <ul>
-                    <li><a href="#">Prev</a></li>
-                    <li><a href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">4</a></li>
-                    <li><a href="#">Next</a></li>
-                </ul>
-            </div>
         </div>
-        <script src="js/ie10-viewport-bug-workaround.js"></script>
-        <script src="js/scripts.js"></script>
+        
+        <!-- Modal Agregar Materia-->
+        <div class="modal fade" id="myModalA" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Asignar materia</h4>
+              </div>
+              <div class="modal-body">
+                <div class="row">
+                    <div class="col-lg-6">
+                      <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Materia...">
+                        <span class="input-group-btn">
+                          <button class="btn btn-default" type="button">Asignar</button>
+                        </span>
+                      </div><!-- /input-group -->
+                    </div><!-- /.col-lg-6 -->
+                </div><!-- /.row -->
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Modal Eliminar Materia-->
+        <div class="modal fade" id="myModalE" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Eliminar materia</h4>
+              </div>
+              <div class="modal-body">
+                <div class="row">
+                    <div class="col-lg-6">
+                      <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Materia...">
+                        <span class="input-group-btn">
+                          <button class="btn btn-default" type="button">Eliminar</button>
+                        </span>
+                      </div><!-- /input-group -->
+                    </div><!-- /.col-lg-6 -->
+                </div><!-- /.row -->
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <script type="text/javascript" src="js/jquery/jquery.js"></script>
+        <script type="text/javascript" src="js/ie-emulation-modes-warning.js"></script>
+        <script type="text/javascript" src="js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="js/ie10-viewport-bug-workaround.js"></script>
+        <script type="text/javascript" src="js/scripts.js"></script>
     </body>
 </html>

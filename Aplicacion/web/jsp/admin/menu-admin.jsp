@@ -22,19 +22,21 @@
                 </div>
                 <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="nav navbar-nav">
-                        <li><a href="Redirect?pagina=menu-admin.jsp">Home</a></li>
-                        <li class="active"><a href="Redirect?pagina=materias.jsp">Materias</a></li>
+                        <li class="active"><a href="Redirect?pagina=menu-admin.jsp">Home</a></li>
+                        <li><a href="Redirect?pagina=materias.jsp">Materias</a></li>
                         <li><a href="Redirect?pagina=profesores.jsp">Profesores</a></li>
                         <li><a href="Redirect?pagina=alumnos.jsp">Alumnos</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Administrador</a></li>
+                        <li><a href="Redirect?pagina=menu-admin.jsp"><span class="glyphicon glyphicon-user"></span> Administrador</a></li>
                         <li><a href="Logout"><span class="glyphicon glyphicon-log-in"></span> Salir</a></li>
                     </ul>
                 </div>
             </div>
         </nav>
         <div class="container">
+            <br><br><br>
+            <div class="alert alert-info" role="alert">¡Bienvenido, <%=request.getSession().getAttribute("usuario")%>!</div>
             <div class="row">
                 <div class="menu">
                     <div class="col-md-2"></div>
