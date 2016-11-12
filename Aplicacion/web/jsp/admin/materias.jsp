@@ -36,51 +36,92 @@
         </nav>
         <div class="container">
             <br><br><br><br>
-            <div class="panel panel-default">
-                <div class="panel-heading">Lista de Materias</div>
-                <table class="table">
-                  <tr>
-                    <th>#</th>
-                    <th>Materia</th> 
-                    <th>Eliminar materia</th> 
-                  </tr>
-                  <tr>
-                    <td>1</td>
-                    <td>Desarrollo de aplicaciones web</td> 
-                    <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Eliminar</button></td>
-                  </tr>
-                  <tr>
-                    <td>2</td>
-                    <td>Compiladores</td> 
-                    <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Eliminar</button></td>
-                  </tr>
-                </table>
+            <div class="row">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <div class="media">
+                            <div class="media-left">
+                                Lista de Materias
+                            </div>
+                            <div class="media-body">
+                                <div class="col-md-8"></div>
+                            </div>
+                            <div class="media-right">
+                                <button class="btn btn-success btn-block" data-toggle="modal" data-target="#agregarMateria"><span class="glyphicon glyphicon-plus"></span>&nbsp;Agregar</button>
+                            </div>
+                        </div>
+                    </div>
+                    <table class="table">
+                      <tr>
+                        <th>#</th>
+                        <th>Materia</th> 
+                        <th>Eliminar materia</th> 
+                      </tr>
+                      <tr>
+                        <td>1</td>
+                        <td>Desarrollo de aplicaciones web</td> 
+                        <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Eliminar</button></td>
+                      </tr>
+                      <tr>
+                        <td>2</td>
+                        <td>Compiladores</td> 
+                        <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Eliminar</button></td>
+                      </tr>
+                    </table>
+                </div>
             </div>
         </div>
         
         <!-- Modal -->
         <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel">Eliminar Materia</h4>
-              </div>
-              <div class="modal-body">
-                ¿Seguro que quieres eliminar _____?
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-primary">Eliminar</button>
-              </div>
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Eliminar Materia</h4>
+                    </div>
+                    <div class="modal-body">
+                        ¿Seguro que quieres eliminar _____?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                        <button type="button" class="btn btn-primary">Eliminar</button>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
         
+        <!-- Modal -->
+        <div class="modal fade" id="agregarMateria" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="exampleModalLabel">Agregar nueva asignatura: </h4>
+                    </div>
+                    <div class="modal-body">
+                        <form id="addAsignature" name="addAsignature">
+                            <div class="form-group">
+                                <label for="asignature-name" class="control-label">Nombre asignatura:</label>
+                                <input type="text" class="form-control" id="asignature-name" name="asignature-name">
+                            </div>
+                            <div class="form-group">
+                                <label for="creditos-text" class="control-label">Cr&eacute;ditos:</label>
+                                <input type="number" class="form-control" id="creditos-text" name="creditos-text">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                        <button type="button" class="btn btn-primary">Enviar solicitud</button>
+                    </div>
+                </div>
+            </div>
+        </div>
         <script type="text/javascript" src="js/jquery/jquery.js"></script>
         <script type="text/javascript" src="js/ie-emulation-modes-warning.js"></script>
         <script type="text/javascript" src="js/bootstrap.min.js"></script>
         <script type="text/javascript" src="js/ie10-viewport-bug-workaround.js"></script>
-        <script type="text/javascript" src="js/scripts.js"></script>
+        <script type="text/javascript" src="js/admin/funciones.js"></script>
     </body>
 </html>

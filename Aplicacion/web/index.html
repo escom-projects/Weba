@@ -10,7 +10,6 @@
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <link href="css/ie10-viewport-bug-workaround.css" rel="stylesheet">
         <link href="css/signin.css" rel="stylesheet">
-        <script src="js/ie-emulation-modes-warning.js"></script>
     </head>
     <body>
         <nav class="navbar navbar-default navbar-fixed-top">
@@ -33,24 +32,33 @@
             </div>
         </nav>
         <div class="container">
-            <form class="form-signin" method="post" action="Login">
+            <form id="signin-form" class="form-signin" method="post" action="Login">
                 <h2 class="form-signin-heading">Por favor, reg&iacute;strate</h2>
                 <div class="input-group">
                     <span class="input-group-addon"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></span>
-                    <input type="text" name="inputNick" id="inputNick" class="form-control" placeholder="Nombre de usuario" required autofocus>
+                    <div id="form-input">
+                        <input type="text" name="inputNick" id="inputNick" class="form-control" placeholder="Nombre de usuario" required autofocus>
+                    </div>
                 </div>
                 <div class="input-group">
                     <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span></span>
-                    <input type="password" name="inputPassword" id="inputPassword" class="form-control" placeholder="Password" required>
+                    <div id="form-input">
+                        <input type="password" name="inputPassword" id="inputPassword" class="form-control" placeholder="Password" required>
+                    </div>
                 </div>
                 <div class="checkbox">
                     <label>
                       <input type="checkbox" value="remember-me"> Recordar contrase&ntilde;a
                     </label>
                 </div>
+                <div id="error" class="alert alert-danger" role="alert"><span class="glyphicon glyphicon-remove-sign"></span>&nbsp;&nbsp;</div>
                 <button class="btn btn-lg btn-primary btn-block" type="submit">Acceder</button>
             </form>
         </div>
-        <script src="js/ie10-viewport-bug-workaround.js"></script>
+        <script type="text/javascript" src="js/jquery/jquery.js"></script>
+        <script type="text/javascript" src="js/validator/jquery.validate.js"></script>
+        <script type="text/javascript" src="js/ie10-viewport-bug-workaround.js"></script>
+        <script type="text/javascript" src="js/ie-emulation-modes-warning.js"></script>
+        <script type="text/javascript" src="js/login/funciones.js"></script>
     </body>
 </html>

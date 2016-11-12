@@ -47,7 +47,7 @@
                   </tr>
                   <tr>
                     <td>1</td>
-                    <td>Alumno</td> 
+                    <td>Alumno</td>
                     <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModalA">Añadir</button></td>
                     <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModalE">Eliminar</button></td>
                   </tr>

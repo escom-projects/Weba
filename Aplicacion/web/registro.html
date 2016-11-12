@@ -36,79 +36,111 @@
                                     <div class="col-md-6">
                                         <div id="campo-matricula" class="form-group">
                                             <label for="matricula">Matricula: </label>
-                                            <input type="text" name="matricula" id="matricula" class="form-control" required />
+                                            <div id="campo">
+                                                <input type="text" name="matricula" id="matricula" class="form-control"  />
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div id="campo-nombre" class="form-group">
                                             <label for="nombre">Tu nombre: </label>
-                                            <input type="text" name="nombre" id="nombre" class="form-control" required />
+                                            <div id="campo">
+                                                <input type="text" name="nombre" id="nombre" class="form-control"  />
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div id="campo-apellido-paterno" class="form-group">
                                     <label for="ap_paterno_usuario">Apellido paterno: </label>
-                                    <input type="text" name="ap_paterno_usuario" id="ap_paterno_usuario" class="form-control" required />
+                                    <div id="campo">
+                                        <input type="text" name="ap_paterno_usuario" id="ap_paterno_usuario" class="form-control"  />
+                                    </div>
                                 </div>
                                 <div id="campo-apellido-materno" class="form-group">
                                     <label for="ap_materno_usuario">Apellido materno: </label>
-                                    <input type="text" name="ap_materno_usuario" id="ap_materno_usuario" class="form-control" required />
+                                    <div id="campo">
+                                        <input type="text" name="ap_materno_usuario" id="ap_materno_usuario" class="form-control"  />
+                                    </div>
                                 </div>
                                 <div id="campo-correo" class="form-group">
                                     <label for="correo_usuario">Correo Electr&oacute;nico: </label>
-                                    <input type="email" name="correo_usuario" id="correo_usuario" class="form-control" required />
+                                    <div id="campo">
+                                        <input type="email" name="correo_usuario" id="correo_usuario" class="form-control"  />
+                                    </div>
                                 </div>
                                 <div id="campo-sexo" class="form-group">
                                     <label for="sexo">Sexo: </label>
-                                    <label><input type="radio" name="sexo" value="M" class="form-check-input" required>&nbsp;&nbsp;Masculino</label>
-                                    <label><input type="radio" name="sexo" value="F" class="form-check-input" required>&nbsp;&nbsp;Femenino</label>
+                                    <div id="campo">
+                                        <label><input type="radio" name="sexo" value="M" class="form-check-input" >&nbsp;&nbsp;Masculino</label>
+                                        <label><input type="radio" name="sexo" value="F" class="form-check-input" >&nbsp;&nbsp;Femenino</label>
+                                    </div>
                                 </div>
                                 <div class="row">
-                                    <div id="campo-fechaNacimiento" class="form-group col-md-3">
-                                        <label for="fechaNacimiento">Fecha de nacimiento: </label>
-                                        <input type="text" name="fechaNacimiento" id="fechaNacimiento" class="form-control" required />
+                                    <div id="campo-fechaNacimiento" class="form-group col-md-3 has-feedback">
+                                        <label class="control-label" for="fechaNacimiento">Fecha de nacimiento: </label>
+                                        <div id="campo">
+                                            <input type="text" name="fechaNacimiento" id="fechaNacimiento" class="form-control"  />
+                                            <span class="glyphicon glyphicon-calendar form-control-feedback" aria-hidden="true"></span>
+                                        </div>
                                     </div>
                                     <div id="campo-cp" class="form-group col-md-3">
                                         <label for="cp">C&oacute;digo postal: </label>
-                                        <input type="text" name="cp" id="cp" class="form-control" required />
+                                        <div id="campo">
+                                            <input type="text" name="cp" id="cp" class="form-control"  />
+                                        </div>
                                     </div>
                                     <div id="campo-calle" class="form-group col-md-3">
                                         <label for="calle">Calle: </label>
-                                        <input type="text" name="calle" id="calle" class="form-control" required />
+                                        <div id="campo">
+                                            <input type="text" name="calle" id="calle" class="form-control"  />
+                                        </div>
                                     </div>
                                     <div id="campo-numero" class="form-group col-md-3">
                                         <label for="numero">N&uacute;mero: </label>
-                                        <input type="number" name="numero" id="numero" class="form-control" required />
+                                        <div id="campo">
+                                            <input type="number" name="numero" id="numero" class="form-control"  />
+                                        </div>
                                     </div>
                                 </div>
                                 <div id="campo-colonia" class="form-group">
-                                        <label for="colonia">Colonia: </label>
-                                        <input type="text" name="colonia" id="colonia" class="form-control" required />
+                                    <label for="colonia">Colonia: </label>
+                                    <div id="campo">
+                                        <input type="text" name="colonia" id="colonia" class="form-control"  />
                                     </div>
+                                </div>
                                 <div id="campo-nombre-usuario" class="form-group">
                                     <label for="nombre_usuario">Nombre de usuario: </label>
-                                    <input type="text" name="nombre_usuario" id="nombre_usuario" class="form-control" required />
+                                    <div id="campo">
+                                        <input type="text" name="nombre_usuario" id="nombre_usuario" class="form-control"  />
+                                    </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-8">
                                         <div id="campo-clave-usuario" class="form-group">
                                             <label for="clave_usuario">Clave de usuario: </label>
-                                            <input type="text" name="clave_usuario" id="clave_usuario" class="form-control" required />
+                                            <div id="campo">
+                                                <input type="text" name="clave_usuario" id="clave_usuario" class="form-control"  />
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div id="campo-tipo-usuario" class="form-group">
                                             <label for="tipo_usuario">Rol de usuario: </label>
-                                            <select name="tipo_usuario" id="tipo_usuario" class="form-control">
-                                                <option value="Alumno">Alumno</option>
-                                                <option value="Profesor">Profesor</option>
-                                            </select>
+                                            <div id="campo">
+                                                <select name="tipo_usuario" id="tipo_usuario" class="form-control" title="¡Seleccionar opcion!">
+                                                    <option value="" default>-- Selecciona rol de usuario --</option>
+                                                    <option value="Alumno">Alumno</option>
+                                                    <option value="Profesor">Profesor</option>
+                                                </select>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div id="campo-terminos" class="checkbox">
                                     <label>
-                                        <input type="checkbox"> Acepto términos y condiciones
+                                        <div id="campo">
+                                            <input type="checkbox" id="agree" name="agree"> Acepto términos y condiciones
+                                        </div>
                                     </label>
                                 </div>
                                 <div id="btn-registro" class="form-group">
@@ -128,9 +160,10 @@
                 <div class="col-md-2"></div>
             </div>
         </div>
-        <script src="js/jquery/jquery-1.9.1.js"></script>
+        <script src="js/jquery/jquery.js"></script>
         <script src="js/jquery/jquery-ui.js"></script>
+        <script src="js/validator/jquery.validate.js"></script>
         <script src="js/bootstrap.min.js"></script>
-        <script src="js/funciones.js"></script>
+        <script src="js/registro/funciones.js"></script>
     </body>
 </html>
