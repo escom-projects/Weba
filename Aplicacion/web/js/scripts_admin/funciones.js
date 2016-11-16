@@ -2,7 +2,7 @@ $(document).ready(function () {
     $( '#mensajes' ).hide();//AddMateria
     $( "#sendRequest" ).click( function () {
         $.ajax({
-            'url': '#',
+            'url': 'AddMateria',
             'type': 'post',
             'data': $( '#addAsignature' ).serialize()
         }).done(function ( dataMsg ) {

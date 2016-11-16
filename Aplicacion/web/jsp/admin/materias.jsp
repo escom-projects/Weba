@@ -109,13 +109,13 @@
                             <div class="form-group">
                                 <label for="asignature_name" class="control-label">Nombre asignatura:</label>
                                 <div id="input">
-                                    <input type="text" class="form-control" id="asignature_name" name="asignature-name">
+                                    <input type="text" class="form-control" id="asignature_name" name="asignature_name">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="creditos_text" class="control-label">Cr&eacute;ditos:</label>
                                 <div id="input">
-                                    <input type="number" class="form-control" id="creditos_text" name="creditos-text">
+                                    <input type="number" class="form-control" id="creditos_text" name="creditos_text">
                                 </div>
                             </div>
                         </form>
