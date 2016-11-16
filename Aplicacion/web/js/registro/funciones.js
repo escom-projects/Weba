@@ -1,9 +1,3 @@
-$.validator.setDefaults( {
-    submitHandler: function () {
-        alert( "submitted!" );
-    }
-} );
-
 $( function() {
     $( "#fechaNacimiento" ).datepicker();
     $( "#fechaNacimiento" ).datepicker( "option", "dateFormat", "yy-mm-dd" );

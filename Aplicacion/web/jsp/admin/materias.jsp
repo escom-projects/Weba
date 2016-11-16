@@ -37,6 +37,9 @@
         <div class="container">
             <br><br><br><br>
             <div class="row">
+                <div id="mensajes" role="alert"></div>
+            </div>
+            <div class="row">
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <div class="media">
@@ -52,21 +55,23 @@
                         </div>
                     </div>
                     <table class="table">
-                      <tr>
-                        <th>#</th>
-                        <th>Materia</th> 
-                        <th>Eliminar materia</th> 
-                      </tr>
-                      <tr>
-                        <td>1</td>
-                        <td>Desarrollo de aplicaciones web</td> 
-                        <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Eliminar</button></td>
-                      </tr>
-                      <tr>
-                        <td>2</td>
-                        <td>Compiladores</td> 
-                        <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Eliminar</button></td>
-                      </tr>
+                        <thead>
+                            <th>#</th>
+                            <th>Materia</th> 
+                            <th>Acciones</th>
+                        </thead>
+                        <tbody>
+                            <!--<tr>
+                                <td>1</td>
+                                <td>Desarrollo de aplicaciones web</td> 
+                                <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Eliminar</button></td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Compiladores</td> 
+                                <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Eliminar</button></td>
+                            </tr>-->
+                        </tbody>
                     </table>
                 </div>
             </div>
@@ -92,36 +97,41 @@
         </div>
         
         <!-- Modal -->
-        <div class="modal fade" id="agregarMateria" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+        <div class="modal fade" id="agregarMateria" tabindex="-1" role="dialog" aria-labelledby="agregarModalLabel">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title" id="exampleModalLabel">Agregar nueva asignatura: </h4>
+                        <h4 class="modal-title" id="agregarModalLabel">Agregar nueva asignatura: </h4>
                     </div>
                     <div class="modal-body">
                         <form id="addAsignature" name="addAsignature">
                             <div class="form-group">
-                                <label for="asignature-name" class="control-label">Nombre asignatura:</label>
-                                <input type="text" class="form-control" id="asignature-name" name="asignature-name">
+                                <label for="asignature_name" class="control-label">Nombre asignatura:</label>
+                                <div id="input">
+                                    <input type="text" class="form-control" id="asignature_name" name="asignature-name">
+                                </div>
                             </div>
                             <div class="form-group">
-                                <label for="creditos-text" class="control-label">Cr&eacute;ditos:</label>
-                                <input type="number" class="form-control" id="creditos-text" name="creditos-text">
+                                <label for="creditos_text" class="control-label">Cr&eacute;ditos:</label>
+                                <div id="input">
+                                    <input type="number" class="form-control" id="creditos_text" name="creditos-text">
+                                </div>
                             </div>
                         </form>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                        <button type="button" class="btn btn-primary">Enviar solicitud</button>
+                        <button type="button" class="btn btn-primary" name="sendRequest" id="sendRequest">Enviar solicitud</button>
                     </div>
                 </div>
             </div>
         </div>
         <script type="text/javascript" src="js/jquery/jquery.js"></script>
+        <script type="text/javascript" src="js/validator/jquery.validate.js"></script>
         <script type="text/javascript" src="js/ie-emulation-modes-warning.js"></script>
         <script type="text/javascript" src="js/bootstrap.min.js"></script>
         <script type="text/javascript" src="js/ie10-viewport-bug-workaround.js"></script>
-        <script type="text/javascript" src="js/admin/funciones.js"></script>
+        <script type="text/javascript" src="js/scripts_admin/funciones.js"></script>
     </body>
 </html>
