@@ -20,6 +20,10 @@
         <servlet-name>AddMateria</servlet-name>
         <servlet-class>com.ipn.mx.controller.servlets.admin.AddMateria</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>cargarMaterias</servlet-name>
+        <servlet-class>com.ipn.mx.controller.servlets.admin.cargarMaterias</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/Login</url-pattern>
@@ -39,6 +43,10 @@
     <servlet-mapping>
         <servlet-name>AddMateria</servlet-name>
         <url-pattern>/AddMateria</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>cargarMaterias</servlet-name>
+        <url-pattern>/cargarMaterias</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

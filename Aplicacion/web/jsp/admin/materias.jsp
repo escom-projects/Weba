@@ -9,7 +9,7 @@
         <link href="css/ie10-viewport-bug-workaround.css" rel="stylesheet">
         <link href="css/menu_admin.css" rel="stylesheet">
     </head>
-    <body>
+    <body onload="javascript: cargar();">
         <nav class="navbar navbar-inverse navbar-fixed-top">
             <div class="container-fluid">
                 <div class="navbar-header">
@@ -54,24 +54,14 @@
                             </div>
                         </div>
                     </div>
-                    <table class="table">
+                    <table class="table table-hover">
                         <thead>
                             <th>#</th>
-                            <th>Materia</th> 
+                            <th>Materia</th>
+                            <th>Cr&eacute;ditos</th>
                             <th>Acciones</th>
                         </thead>
-                        <tbody>
-                            <!--<tr>
-                                <td>1</td>
-                                <td>Desarrollo de aplicaciones web</td> 
-                                <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Eliminar</button></td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>Compiladores</td> 
-                                <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Eliminar</button></td>
-                            </tr>-->
-                        </tbody>
+                        <tbody id="rows"></tbody>
                     </table>
                 </div>
             </div>
@@ -122,7 +112,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                        <button type="button" class="btn btn-primary" name="sendRequest" id="sendRequest">Enviar solicitud</button>
+                        <button type="submit" class="btn btn-primary" name="sendRequest" id="sendRequest">Enviar solicitud</button>
                     </div>
                 </div>
             </div>

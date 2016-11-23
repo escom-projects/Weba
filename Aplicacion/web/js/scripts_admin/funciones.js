@@ -68,3 +68,34 @@ $(document).ready(function () {
         }
     });
 });
+
+function cargar() {
+    $.ajax({
+        'url': "cargarMaterias",
+        'type': "get",
+        contentType: 'application/json',
+        dataType: "json"
+    }).done(function (data) {
+        var obj = eval(data);
+        var row = "";
+        var count = 0;
+        for (var i in obj) {
+            row += "<tr>";
+            if (obj[i].status === "full") {
+                row += "<td>" + (count++) + "</td>";
+                row += "<td>" + obj[i].nombre + "</td>";
+                row += "<td>" + obj[i].creditos + "</td>";
+                row += "<td><button type=\"button\" class=\"btn btn-primary\" data-toggle=\"modal\" data-target=\"#myModal\">Eliminar</button></td>";
+            } else if (obj[i].status === "empty") {
+                row += "<td colspan='3'>Lo sentimos, no hay materias registradas</td>";
+            } else if (obj[i].status === "error") {
+                row += "<td colspan='3'>Lo sentimos, ha ocurrido un error interno en el servidor</td>";
+            }
+            row += "</tr>";
+        }
+        $("#rows").html(row);
+    }).fail(function (status, errorThrown) {
+        alert("Estatus del servidor: " + status + "\n" + 
+              "Error:" + errorThrown + "\n");
+    });
+}
