@@ -68,34 +68,40 @@
                                         <input type="email" name="correo_usuario" id="correo_usuario" class="form-control"  />
                                     </div>
                                 </div>
-                                <div id="campo-sexo" class="form-group">
-                                    <label for="sexo">Sexo: </label>
-                                    <div id="campo">
-                                        <label><input type="radio" name="sexo" value="M" class="form-check-input" >&nbsp;&nbsp;Masculino</label>
-                                        <label><input type="radio" name="sexo" value="F" class="form-check-input" >&nbsp;&nbsp;Femenino</label>
+                                <div class="row">
+                                    <div id="campo-sexo" class="form-group col-md-6">
+                                        <label for="sexo">Sexo: </label>
+                                        <div id="campo">
+                                            <label><input type="radio" name="sexo" value="M" class="form-check-input" >&nbsp;&nbsp;Masculino</label>
+                                            <label><input type="radio" name="sexo" value="F" class="form-check-input" >&nbsp;&nbsp;Femenino</label>
+                                        </div>
+                                    </div>
+                                    <div id="campo-fechaNacimiento" class="form-group col-md-6">
+                                        <label class="control-label" for="fechaNacimiento">Fecha de nacimiento: </label>
+                                        <div id="campo">
+                                            <div class="input-group date">
+                                                <span class="input-group-addon">
+                                                    <span class="glyphicon glyphicon-calendar"></span>
+                                                </span>
+                                                <input type="date" name="fechaNacimiento" id="fechaNacimiento" class="form-control"  />
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div id="campo-fechaNacimiento" class="form-group col-md-3 has-feedback">
-                                        <label class="control-label" for="fechaNacimiento">Fecha de nacimiento: </label>
-                                        <div id="campo">
-                                            <input type="text" name="fechaNacimiento" id="fechaNacimiento" class="form-control"  />
-                                            <span class="glyphicon glyphicon-calendar form-control-feedback" aria-hidden="true"></span>
-                                        </div>
-                                    </div>
-                                    <div id="campo-cp" class="form-group col-md-3">
+                                    <div id="campo-cp" class="form-group col-md-4">
                                         <label for="cp">C&oacute;digo postal: </label>
                                         <div id="campo">
                                             <input type="text" name="cp" id="cp" class="form-control"  />
                                         </div>
                                     </div>
-                                    <div id="campo-calle" class="form-group col-md-3">
+                                    <div id="campo-calle" class="form-group col-md-4">
                                         <label for="calle">Calle: </label>
                                         <div id="campo">
                                             <input type="text" name="calle" id="calle" class="form-control"  />
                                         </div>
                                     </div>
-                                    <div id="campo-numero" class="form-group col-md-3">
+                                    <div id="campo-numero" class="form-group col-md-4">
                                         <label for="numero">N&uacute;mero: </label>
                                         <div id="campo">
                                             <input type="number" name="numero" id="numero" class="form-control"  />
@@ -136,16 +142,15 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div id="campo-terminos" class="checkbox">
-                                    <label>
-                                        <div id="campo">
-                                            <input type="checkbox" id="agree" name="agree"> Acepto términos y condiciones
-                                        </div>
-                                    </label>
+                                <div id="campo-terminos" class="form-group">
+                                    <div id="campo">
+                                        <label>
+                                            <input type="checkbox" id="agree" name="agree" class="checkbox-inline"> Acepto términos y condiciones
+                                        </label>
+                                    </div>
                                 </div>
                                 <div id="btn-registro" class="form-group">
                                     <div class="row">
-                                        <!-- <div class="col-sm-offset-1 col-sm-3"> -->
                                         <div class="col-sm-1"></div>
                                         <div class="col-sm-10">
                                             <button type="submit" name="registrarUsuario" id="registrarUsuario"  class="btn btn-info btn-lg btn-block">Registrarme</button>

@@ -98,14 +98,14 @@ $( function() {
             element.parents( "#campo" ).addClass( "has-feedback" );
 
             if ( element.prop( "type" ) === "checkbox" ) {
-                error.insertAfter( element.parent( "div" ) );
+                error.insertAfter( element.parent( "label" ) );
             } else if( element.prop( "type" ) === "radio" ) {
+                error.insertAfter( element.parent( "div" ) );
+            } else if ( element.prop( "type" ) === "date" ) {
                 error.insertAfter( element.parent( "div" ) );
             } else {
                 error.insertAfter( element );
             }
-
-            // Add the span element, if doesn't exists, and apply the icon classes to it.
             if ( !element.next( "span" )[ 0 ] ) {
                 $( "<span class='glyphicon glyphicon-remove form-control-feedback'></span>" ).insertAfter( element );
             }

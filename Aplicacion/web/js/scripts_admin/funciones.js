@@ -2,7 +2,8 @@ $(document).ready(function () {
     $( '#mensajes' ).hide();//AddMateria
     $( "#sendRequest" ).click( function () {
         $.ajax({
-            'url': 'AddMateria',
+//            'url': 'AddMateria',
+            'url': '#',
             'type': 'post',
             'data': $( '#addAsignature' ).serialize()
         }).done(function ( dataMsg ) {
@@ -53,17 +54,18 @@ $(document).ready(function () {
                 number: "Especifica un numero v&aacute;lido."
             }
         },
+        errorElement: "em",
         errorPlacement: function ( error, element ) {
             error.addClass( "help-block" );
             element.parents( "#input" ).addClass( "has-feedback" );
-            error.insertAfter( element.parent( "#input" ) );
+            error.insertAfter( element.parent( "div" ) );
         },
         highlight: function ( element, errorClass, validClass ) {
-            $( element ).parents( "#form-input" ).addClass( "has-error" ).removeClass( "has-success" );
+            $( element ).parents( "#input" ).addClass( "has-error" ).removeClass( "has-success" );
             $( element ).next( "span" ).addClass( "glyphicon-remove" ).removeClass( "glyphicon-ok" );
         },
         unhighlight: function (element, errorClass, validClass) {
-            $( element ).parents( "#form-input" ).addClass( "has-success" ).removeClass( "has-error" );
+            $( element ).parents( "#input" ).addClass( "has-success" ).removeClass( "has-error" );
             $( element ).next( "span" ).addClass( "glyphicon-ok" ).removeClass( "glyphicon-remove" );
         }
     });
@@ -73,12 +75,12 @@ function cargar() {
     $.ajax({
         'url': "cargarMaterias",
         'type': "get",
-        contentType: 'application/json',
-        dataType: "json"
+        'contentType': 'application/json',
+        'dataType': "json"
     }).done(function (data) {
         var obj = eval(data);
         var row = "";
-        var count = 0;
+        var count = 1;
         for (var i in obj) {
             row += "<tr>";
             if (obj[i].status === "full") {
