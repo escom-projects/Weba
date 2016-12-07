@@ -71,10 +71,11 @@ public class Login extends HttpServlet {
         return "Short description";
     }// </editor-fold>
 
-    private void login(HttpServletRequest request, HttpServletResponse response) {
+    private void login(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         RequestDispatcher vista;
         UsuarioDAO dao = new UsuarioDAO(); 
         Usuario usuario = new Usuario();
+        Sesion sesion = new Sesion();
         String ruta;
         int tipo;
                
@@ -84,39 +85,53 @@ public class Login extends HttpServlet {
         usuario.setNickUsuario(nickUsuario);
         usuario.setClaveUsuario(passUsuario);
         
-        Usuario readed = dao.Login(usuario).get(0); 
-        Tipousuario k = dao.getTipoUsuario(readed).get(0);
-        tipo = k.getTipo();
-        Sesion sesion = new Sesion();
-        sesion.crearSesion(request, response, "usuario", nickUsuario);
-        sesion.crearSesion(request, response, "clave", passUsuario);
-        switch(tipo){
-            case 0:
-                //admin
-                sesion.crearSesion(request, response, "User-Type", User.ADMIN);
-                ruta = "jsp/admin/menu-admin.jsp";
-            break;
-            case 1:
-                //profe
-                sesion.crearSesion(request, response, "User-Type", User.PROFESOR);
-                ruta = "jsp/profesor/menu-profesor.jsp";
-            break;
-            case 2:
-                //alumno
-                sesion.crearSesion(request, response, "User-Type", User.ALUMNO);
-                ruta = "jsp/alumno/menu-alumno.jsp";
-            break;
-            default:
-                //error
-                ruta = "jsp/Error.jsp?CodeError=1";
-            break;
-        }
         try {
-            vista = request.
-                getRequestDispatcher(ruta);
-            vista.forward(request, response);
-        } catch (ServletException | IOException ex) {
-            ex.printStackTrace();
+            Usuario readed = dao.Login(usuario).get(0);
+            if (readed == null) {
+                ruta = "Error.jsp?error=UserNullFound";
+            } else {
+                Tipousuario k = dao.getTipoUsuario(readed).get(0);
+                tipo = k.getTipo();
+                
+                sesion.crearSesion(request, response, "usuario", nickUsuario);
+                sesion.crearSesion(request, response, "clave", passUsuario);
+                switch(tipo){
+                    case 0:
+                        //admin
+                        sesion.crearSesion(request, response, "User-Type", User.ADMIN);
+                        ruta = "jsp/admin/menu-admin.jsp";
+                    break;
+                    case 1:
+                        //profe
+                        sesion.crearSesion(request, response, "User-Type", User.PROFESOR);
+                        ruta = "jsp/profesor/menu-profesor.jsp";
+                    break;
+                    case 2:
+                        //alumno
+                        sesion.crearSesion(request, response, "User-Type", User.ALUMNO);
+                        ruta = "jsp/alumno/menu-alumno.jsp";
+                    break;
+                    default:
+                        //error
+                        ruta = "jsp/Error.jsp?codeError=1";
+                    break;
+                }
+            }
+            try {
+                vista = request.
+                    getRequestDispatcher(ruta);
+                vista.forward(request, response);
+            } catch (ServletException | IOException ex) {
+                System.out.println("Error de redireccion de pagina: " + ex.getMessage());
+            }
+        } catch (NullPointerException n) {
+            sesion.destruirSesion(request, response, "nombre_usuario");
+            sesion.destruirSesion(request, response, "clave_usuario");
+            request.getRequestDispatcher("ErrorPage.jsp?error=NullPointerException").forward(request, response);
+        } catch (IndexOutOfBoundsException ioobe) {
+            sesion.destruirSesion(request, response, "nombre_usuario");
+            sesion.destruirSesion(request, response, "clave_usuario");
+            request.getRequestDispatcher("jsp/Error.jsp?error=UserNotRegister").forward(request, response);
         }
     }
 

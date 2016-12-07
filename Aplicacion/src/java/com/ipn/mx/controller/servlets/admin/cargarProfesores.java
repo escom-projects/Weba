@@ -1,9 +1,10 @@
 package com.ipn.mx.controller.servlets.admin;
 
-import com.ipn.mx.model.dao.MateriasDAO;
-import com.ipn.mx.model.entities.Materias;
+import com.ipn.mx.model.dao.UsuarioDAO;
+import com.ipn.mx.model.entities.Usuario;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.List;
 import javax.json.Json;
 import javax.json.JsonArrayBuilder;
@@ -17,7 +18,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Usuario
  */
-public class cargarMaterias extends HttpServlet {
+public class cargarProfesores extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -30,31 +31,36 @@ public class cargarMaterias extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        MateriasDAO dao = new MateriasDAO();
+        UsuarioDAO dao = new UsuarioDAO();
+        List<Object[]> usuarios = new ArrayList<>();
         response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            JsonObjectBuilder materiasBuilder = Json.createObjectBuilder();
-            JsonArrayBuilder arrayMateriasBuilder = Json.createArrayBuilder();
+            JsonObjectBuilder usuariosBuilder = Json.createObjectBuilder();
+            JsonObjectBuilder contenedorObject = Json.createObjectBuilder();
+            JsonArrayBuilder arrayUsuariosBuilder = Json.createArrayBuilder();
             try {
-                List<Materias> materias = dao.readAll();
-                if (materias.isEmpty()) {
-                    materiasBuilder.add("status", "empty");
-                    arrayMateriasBuilder.add(materiasBuilder);
+                usuarios = dao.findBytipoUsuario(1);
+                if (usuarios.isEmpty()) {
+                    contenedorObject.add("status", "empty");
                 } else {
-                    materiasBuilder.add("status", "full");
-                    for (Materias materia : materias) {
-                        materiasBuilder.add("ID", materia.getIdMaterias())
-                            .add("nombre", materia.getNombreMateria())
-                            .add("creditos", materia.getCreditos());
-                        arrayMateriasBuilder.add(materiasBuilder);
+                    contenedorObject.add("status", "full");
+                    for (Object[] usuario : usuarios) {
+                        usuariosBuilder.add("ID", ((Usuario) usuario[0]).getMatricula())
+                            .add("nombre", ((Usuario) usuario[0]).getNombreUsuario())
+                            .add("apPaterno", ((Usuario) usuario[0]).getPaternoUsuario())
+                            .add("apMaterno", ((Usuario) usuario[0]).getMaternoUsuario())
+                            .add("correo", ((Usuario) usuario[0]).getEmail())
+                            .add("nickUsuario", ((Usuario) usuario[0]).getNickUsuario())
+                            .add("claveUsuario", ((Usuario) usuario[0]).getClaveUsuario());
+                        arrayUsuariosBuilder.add(usuariosBuilder);
                     }
                 }
+                contenedorObject.add("mensaje", arrayUsuariosBuilder);
             } catch(NullPointerException npe) {
-                materiasBuilder.add("status", "error");
-                arrayMateriasBuilder.add(materiasBuilder);
+                contenedorObject.add("status", "error");
             }
-            out.print(arrayMateriasBuilder.build());
+            out.print(contenedorObject.build());
             out.flush();
         }
     }

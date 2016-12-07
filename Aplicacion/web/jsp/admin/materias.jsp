@@ -47,10 +47,17 @@
                                 Lista de Materias
                             </div>
                             <div class="media-body">
-                                <div class="col-md-8"></div>
+                                <div class="col-md-5"></div>
                             </div>
                             <div class="media-right">
-                                <button class="btn btn-success btn-block" data-toggle="modal" data-target="#agregarMateria"><span class="glyphicon glyphicon-plus"></span>&nbsp;Agregar</button>
+                                <div class="btn-group" role="group" aria-label="">
+                                    <button type="button" id="btnReload" class="btn btn-default">
+                                        <span class="glyphicon glyphicon-refresh"></span>
+                                    </button>
+                                    <button type="button" class="btn btn-success btn-block" data-toggle="modal" data-target="#agregarMateria">
+                                        <span class="glyphicon glyphicon-plus"></span>&nbsp;Agregar
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>

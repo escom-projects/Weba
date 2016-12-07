@@ -3,7 +3,7 @@ $(document).ready(function () {
     $( "#sendRequest" ).click( function () {
         $.ajax({
 //            'url': 'AddMateria',
-            'url': '#',
+            'url': 'AddMateria',
             'type': 'post',
             'data': $( '#addAsignature' ).serialize()
         }).done(function ( dataMsg ) {
@@ -29,6 +29,9 @@ $(document).ready(function () {
             $( '#mensajes' ).html("Ha ocurrido un <strong>error</strong> con el servidor: " + textStatus);
         });
     } );
+    $( '#btnReload' ).click(function () {
+        location.reload();
+    });
     $('#addAsignature').validate({
         rules: {
             asignature_name: {

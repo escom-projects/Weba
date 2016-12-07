@@ -9,7 +9,7 @@
         <link href="css/ie10-viewport-bug-workaround.css" rel="stylesheet">
         <link href="css/menu_admin.css" rel="stylesheet">
     </head>
-    <body>
+    <body onload="javascript: cargarMaestros();">
         <nav class="navbar navbar-inverse navbar-fixed-top">
             <div class="container-fluid">
                 <div class="navbar-header">
@@ -38,25 +38,22 @@
             <br><br><br><br>
             <div class="panel panel-default">
                 <div class="panel-heading">Lista de Profesores</div>
-                <table class="table">
-                  <tr>
-                    <th>#</th>
-                    <th>Profesor</th> 
-                    <th>Asignar materia</th> 
-                    <th>Eliminar materia</th> 
-                  </tr>
-                  <tr>
-                    <td>1</td>
-                    <td>Ramera Loca</td> 
-                    <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModalA">Añadir</button></td>
-                    <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModalE">Eliminar</button></td>
-                  </tr>
-                  <tr>
-                    <td>2</td>
-                    <td>Cerdo imbécil</td> 
-                    <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModalA">Añadir</button></td>
-                    <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModalE">Eliminar</button></td>
-                  </tr>
+                <table class="table table-hover">
+                    <thead>
+                        <th>No.</th>
+                        <th>Profesor</th>
+                        <th>Correo</th>
+                        <th>Claves de acceso</th>
+                        <th>Acciones</th>
+                    </thead>
+                    <tbody id="rows">
+                        <tr>
+                            <td>1</td>
+                            <td>Ramera Loca</td> 
+                            <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModalA">Añadir</button></td>
+                            <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModalE">Eliminar</button></td>
+                        </tr>
+                    </tbody>
                 </table>
             </div>
         </div>
@@ -77,9 +74,9 @@
                         <span class="input-group-btn">
                           <button class="btn btn-default" type="button">Asignar</button>
                         </span>
-                      </div><!-- /input-group -->
-                    </div><!-- /.col-lg-6 -->
-                </div><!-- /.row -->
+                      </div>
+                    </div>
+                </div>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
@@ -118,6 +115,6 @@
         <script type="text/javascript" src="js/ie-emulation-modes-warning.js"></script>
         <script type="text/javascript" src="js/bootstrap.min.js"></script>
         <script type="text/javascript" src="js/ie10-viewport-bug-workaround.js"></script>
-        <script type="text/javascript" src="js/scripts.js"></script>
+        <script type="text/javascript" src="js/scripts_admin/funcionesProfesor.js"></script>
     </body>
 </html>

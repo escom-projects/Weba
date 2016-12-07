@@ -74,7 +74,7 @@ public class Registro extends HttpServlet {
         return "Short description";
     }// </editor-fold>
 
-    private void registro(HttpServletRequest request, HttpServletResponse response) {
+    private void registro(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
             Utilerias correo = new Utilerias();
             DateFormat formatoFechaNacimiento = new SimpleDateFormat("yyyy-MM-dd");
@@ -115,24 +115,13 @@ public class Registro extends HttpServlet {
             tipos.add(tipo);
             dao.guardar(usuario);
             if (!correo.enviarMail(correo_usuario, sexo, rol_usuario)) {
-                
+                request.getRequestDispatcher("jsp/Error.jsp?error=emailError").forward(request, response);
             } else {
-                redireccionar(request, response);
+                request.getRequestDispatcher("jsp/ExitRegister.jsp?success=true").forward(request, response);
             }
         } catch (ParseException ex) {
             System.out.println("Error de parseo de datos: " + ex.getMessage());
-        }
-        
-    }
-
-    private void redireccionar(HttpServletRequest request, HttpServletResponse response) {
-        try {
-            RequestDispatcher vista = request.
-                    getRequestDispatcher("jsp/ExitRegister.jsp?success=true");
-            vista.forward(request, response);
-        } catch (ServletException | IOException ex) {
-            System.out.println("Ha ocurrido un error de redireccion de vista: " + ex.getMessage());
-        }
+        }    
     }
 
 }

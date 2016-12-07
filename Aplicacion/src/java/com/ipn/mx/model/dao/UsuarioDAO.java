@@ -132,4 +132,34 @@ public class UsuarioDAO {
         }
         return tipos;
     }
+    
+    public List<Object[]> findBytipoUsuario (int type) {
+        Session sesion = HibernateUtil.getSessionFactory().getCurrentSession();
+        Transaction transaccion = sesion.getTransaction();
+        List<Object[]> users = new ArrayList<>();
+        String hql = "from Usuario as u " +
+                    "join u.tipousuarios as t " +
+                    "where t.tipo =:tipo";
+        try {
+            transaccion.begin();
+            Query q = sesion.createQuery(hql);
+            q.setParameter("tipo", type);
+            users = q.list();
+            transaccion.commit();
+        } catch (HibernateException e) {
+            e.printStackTrace();
+            if (transaccion != null && transaccion.isActive()) {
+                transaccion.rollback();
+            }
+        }
+        return users;
+    }
+    
+    public static void main(String[] args) {
+        UsuarioDAO dao = new UsuarioDAO();
+        List<Object[]> usuarios = dao.findBytipoUsuario(1);
+        for (Object[] usuario : usuarios) {
+            System.out.println(((Usuario)usuario[0]).getNombreUsuario());
+        }
+    }
 }

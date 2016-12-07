@@ -22,8 +22,8 @@
                 </div>
                 <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="nav navbar-nav">
-                        <li><a href="/alumno/menu-profesor.jsp">Home</a></li>
-                        <li class="active"><a href="#">Materias</a></li>
+                        <li class="active"><a href="/alumno/menu-profesor.jsp">Home</a></li>
+                        <li><a href="#">Materias</a></li>
                         <li><a href="#">Ex&aacute;menes</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">

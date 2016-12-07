@@ -24,6 +24,22 @@
         <servlet-name>cargarMaterias</servlet-name>
         <servlet-class>com.ipn.mx.controller.servlets.admin.cargarMaterias</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AddProfesor</servlet-name>
+        <servlet-class>com.ipn.mx.controller.servlets.admin.AddProfesor</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>cargarProfesores</servlet-name>
+        <servlet-class>com.ipn.mx.controller.servlets.admin.cargarProfesores</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AddAlumno</servlet-name>
+        <servlet-class>com.ipn.mx.controller.servlets.admin.AddAlumno</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>cargarAlumnos</servlet-name>
+        <servlet-class>com.ipn.mx.controller.servlets.admin.cargarAlumnos</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/Login</url-pattern>
@@ -47,6 +63,22 @@
     <servlet-mapping>
         <servlet-name>cargarMaterias</servlet-name>
         <url-pattern>/cargarMaterias</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddProfesor</servlet-name>
+        <url-pattern>/AddProfesor</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>cargarProfesores</servlet-name>
+        <url-pattern>/cargarProfesores</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddAlumno</servlet-name>
+        <url-pattern>/AddAlumno</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>cargarAlumnos</servlet-name>
+        <url-pattern>/cargarAlumnos</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
