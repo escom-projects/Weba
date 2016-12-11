@@ -78,10 +78,10 @@ public class Login extends HttpServlet {
         Sesion sesion = new Sesion();
         String ruta;
         int tipo;
-               
+        
         String nickUsuario = request.getParameter("inputNick");
         String passUsuario = request.getParameter("inputPassword");
-
+        
         usuario.setNickUsuario(nickUsuario);
         usuario.setClaveUsuario(passUsuario);
         
@@ -92,29 +92,32 @@ public class Login extends HttpServlet {
             } else {
                 Tipousuario k = dao.getTipoUsuario(readed).get(0);
                 tipo = k.getTipo();
-                
                 sesion.crearSesion(request, response, "usuario", nickUsuario);
                 sesion.crearSesion(request, response, "clave", passUsuario);
-                switch(tipo){
+                sesion.crearSesion(request, response, "datos", readed);
+                switch (tipo) {
                     case 0:
                         //admin
                         sesion.crearSesion(request, response, "User-Type", User.ADMIN);
                         ruta = "jsp/admin/menu-admin.jsp";
-                    break;
+                        break;
                     case 1:
-                        //profe
+                        //profesor
                         sesion.crearSesion(request, response, "User-Type", User.PROFESOR);
                         ruta = "jsp/profesor/menu-profesor.jsp";
-                    break;
+                        break;
                     case 2:
                         //alumno
                         sesion.crearSesion(request, response, "User-Type", User.ALUMNO);
                         ruta = "jsp/alumno/menu-alumno.jsp";
-                    break;
+                        break;
                     default:
                         //error
+                        sesion.destruirSesion(request, response, "nombre_usuario");
+                        sesion.destruirSesion(request, response, "clave_usuario");
+                        sesion.destruirSesion(request, response, "datos");
                         ruta = "jsp/Error.jsp?codeError=1";
-                    break;
+                        break;
                 }
             }
             try {
@@ -127,10 +130,12 @@ public class Login extends HttpServlet {
         } catch (NullPointerException n) {
             sesion.destruirSesion(request, response, "nombre_usuario");
             sesion.destruirSesion(request, response, "clave_usuario");
+            sesion.destruirSesion(request, response, "datos");
             request.getRequestDispatcher("ErrorPage.jsp?error=NullPointerException").forward(request, response);
         } catch (IndexOutOfBoundsException ioobe) {
             sesion.destruirSesion(request, response, "nombre_usuario");
             sesion.destruirSesion(request, response, "clave_usuario");
+            sesion.destruirSesion(request, response, "datos");
             request.getRequestDispatcher("jsp/Error.jsp?error=UserNotRegister").forward(request, response);
         }
     }

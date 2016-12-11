@@ -23,7 +23,7 @@
             </key>
             <one-to-many class="com.ipn.mx.model.entities.Calificaciones" />
         </set>
-        <set name="preguntases" table="preguntas" inverse="true" lazy="true" fetch="select">
+        <set name="preguntases" table="preguntas" inverse="true" lazy="true" fetch="select" cascade="all">
             <key>
                 <column name="idExamen" not-null="true" />
             </key>

@@ -8,7 +8,7 @@
             <column name="idPregunta" />
             <generator class="identity" />
         </id>
-        <many-to-one name="examen" class="com.ipn.mx.model.entities.Examen" fetch="select">
+        <many-to-one name="examen" class="com.ipn.mx.model.entities.Examen" fetch="select" cascade="all">
             <column name="idExamen" not-null="true" />
         </many-to-one>
         <property name="pregunta" type="string">
@@ -17,7 +17,7 @@
         <property name="estadoPregunta" type="java.lang.Integer">
             <column name="estadoPregunta" />
         </property>
-        <set name="respuestases" table="respuestas" inverse="true" lazy="true" fetch="select">
+        <set name="respuestases" table="respuestas" inverse="true" lazy="true" fetch="select" cascade="all">
             <key>
                 <column name="idPregunta" not-null="true" />
             </key>

@@ -3,13 +3,13 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Menu Administrador</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Menu Administrador</title>
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <link href="css/ie10-viewport-bug-workaround.css" rel="stylesheet">
         <link href="css/menu_admin.css" rel="stylesheet">
     </head>
-    <body>
+    <body onload="javascript: cargarAlumnos();">
         <nav class="navbar navbar-inverse navbar-fixed-top">
             <div class="container-fluid">
                 <div class="navbar-header">
@@ -28,8 +28,15 @@
                         <li class="active"><a href="Redirect?pagina=alumnos.jsp">Alumnos</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="Redirect?pagina=menu-admin.jsp"><span class="glyphicon glyphicon-user"></span> Administrador</a></li>
-                        <li><a href="Logout"><span class="glyphicon glyphicon-log-in"></span> Salir</a></li>
+                        <li class="dropdown">
+                            <a href="Redirect?pagina=menu-admin.jsp" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                <span class="glyphicon glyphicon-user"></span>&nbsp; Administrador
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#" data-toggle="modal" data-target="#editarPerfil">Editar mi informacion</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="Logout"><span class="glyphicon glyphicon-log-in"></span>&nbsp; Salir</a></li>
                     </ul>
                 </div>
             </div>
@@ -39,24 +46,16 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Lista de Alumnos</div>
                 <table class="table">
-                  <tr>
-                    <th>#</th>
-                    <th>Alumno</th> 
-                    <th>Asignar materia</th> 
-                    <th>Eliminar materia</th> 
-                  </tr>
-                  <tr>
-                    <td>1</td>
-                    <td>Alumno</td>
-                    <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModalA">Añadir</button></td>
-                    <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModalE">Eliminar</button></td>
-                  </tr>
-                  <tr>
-                    <td>2</td>
-                    <td>Oyente</td> 
-                    <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModalA">Añadir</button></td>
-                    <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModalE">Eliminar</button></td>
-                  </tr>
+                    <thead>
+                        <th>No.</th>
+                        <th>Alumno</th> 
+                        <th>Correo</th> 
+                        <th>Datos de acceso</th> 
+                        <th>Asignar materia</th> 
+                        <th>Eliminar materia</th> 
+                        <th>Baja Alumno</th>
+                    </thead>
+                    <tbody id="rows"></tbody>
                 </table>
             </div>
         </div>
@@ -77,9 +76,9 @@
                         <span class="input-group-btn">
                           <button class="btn btn-default" type="button">Asignar</button>
                         </span>
-                      </div><!-- /input-group -->
-                    </div><!-- /.col-lg-6 -->
-                </div><!-- /.row -->
+                      </div>
+                    </div>
+                </div>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
@@ -92,32 +91,33 @@
         <div class="modal fade" id="myModalE" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
           <div class="modal-dialog" role="document">
             <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel">Eliminar materia</h4>
-              </div>
-              <div class="modal-body">
-                <div class="row">
-                    <div class="col-lg-6">
-                      <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Materia...">
-                        <span class="input-group-btn">
-                          <button class="btn btn-default" type="button">Eliminar</button>
-                        </span>
-                      </div><!-- /input-group -->
-                    </div><!-- /.col-lg-6 -->
-                </div><!-- /.row -->
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-              </div>
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Eliminar materia</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Materia...">
+                                <span class="input-group-btn">
+                                  <button class="btn btn-default" type="button">Eliminar</button>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                </div>
             </div>
           </div>
         </div>
+        <%@include file="/jsp/EditMyInformation.jsp" %>
         <script type="text/javascript" src="js/jquery/jquery.js"></script>
         <script type="text/javascript" src="js/ie-emulation-modes-warning.js"></script>
         <script type="text/javascript" src="js/bootstrap.min.js"></script>
         <script type="text/javascript" src="js/ie10-viewport-bug-workaround.js"></script>
-        <script type="text/javascript" src="js/scripts.js"></script>
+        <script type="text/javascript" src="js/scripts_admin/funcionesAlumno.js"></script>
     </body>
 </html>

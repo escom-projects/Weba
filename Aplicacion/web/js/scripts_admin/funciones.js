@@ -1,8 +1,7 @@
 $(document).ready(function () {
-    $( '#mensajes' ).hide();//AddMateria
+    $( '#mensajes' ).hide();
     $( "#sendRequest" ).click( function () {
         $.ajax({
-//            'url': 'AddMateria',
             'url': 'AddMateria',
             'type': 'post',
             'data': $( '#addAsignature' ).serialize()
@@ -76,8 +75,9 @@ $(document).ready(function () {
 
 function cargar() {
     $.ajax({
-        'url': "cargarMaterias",
+        'url': "MateriasServlet",
         'type': "get",
+        'data': {'accion': "readAll"},
         'contentType': 'application/json',
         'dataType': "json"
     }).done(function (data) {
@@ -90,7 +90,7 @@ function cargar() {
                 row += "<td>" + (count++) + "</td>";
                 row += "<td>" + obj[i].nombre + "</td>";
                 row += "<td>" + obj[i].creditos + "</td>";
-                row += "<td><button type=\"button\" class=\"btn btn-primary\" data-toggle=\"modal\" data-target=\"#myModal\">Eliminar</button></td>";
+                row += "<td><button type=\"button\" class=\"btn btn-danger\" onclick=\"javascript: eliminarMateria(" + obj[i].ID + ", '" + obj[i].nombre + "');\">Eliminar</button></td>";
             } else if (obj[i].status === "empty") {
                 row += "<td colspan='3'>Lo sentimos, no hay materias registradas</td>";
             } else if (obj[i].status === "error") {
@@ -99,6 +99,44 @@ function cargar() {
             row += "</tr>";
         }
         $("#rows").html(row);
+    }).fail(function (status, errorThrown) {
+        alert("Estatus del servidor: " + status + "\n" + 
+              "Error:" + errorThrown + "\n");
+    });
+}
+
+function eliminarMateria(id, nombre) {
+    $.ajax({
+        'url': "MateriasServlet",
+        'type': "get",
+        'data': {
+            'accion': "eliminar",
+            'id': id,
+            'nombre': nombre
+        },
+        'contentType': 'application/json',
+        'dataType': "json"
+    }).done(function (data, txtstatus, jXHR) {
+        var mensaje;
+        if (txtstatus === "success") {
+            var estadoSolicitud = eval(data);
+            $( '#mensajes' ).removeClass("alert alert-success alert-dismissible");
+            $( '#mensajes' ).removeClass("alert alert-danger alert-dismissible");
+            if (estadoSolicitud.Estado === "OK") {
+                $( '#mensajes' ).addClass("alert alert-success alert-dismissible");
+                mensaje = "<strong>Eliminacion exitosa</strong>. Se han actualizado las materias.";
+            } else if (estadoSolicitud.Estado === "eliminationFailed") {
+                $( '#mensajes' ).addClass("alert alert-danger alert-dismissible");
+                mensaje = "<strong>Eliminacion fallida</strong>. Ocurrio un error con el servidor de base de datos!!!";
+            }
+        } else {
+            mensaje = "<strong>Eliminacion fallida</strong>. Ocurrio un error de comunicacion con el servidor!!!";
+        }
+        $( '#mensajes' ).html(mensaje);
+        $( '#mensajes' ).show();
+        setTimeout(function() {
+            $( '#mensajes' ).fadeOut(1500);
+        }, 5000);
     }).fail(function (status, errorThrown) {
         alert("Estatus del servidor: " + status + "\n" + 
               "Error:" + errorThrown + "\n");

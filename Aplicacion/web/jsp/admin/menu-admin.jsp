@@ -3,8 +3,8 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Menu Administrador</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Menu Administrador</title>
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <link href="css/ie10-viewport-bug-workaround.css" rel="stylesheet">
         <link href="css/menu_admin.css" rel="stylesheet">
@@ -28,8 +28,15 @@
                         <li><a href="Redirect?pagina=alumnos.jsp">Alumnos</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="Redirect?pagina=menu-admin.jsp"><span class="glyphicon glyphicon-user"></span> Administrador</a></li>
-                        <li><a href="Logout"><span class="glyphicon glyphicon-log-in"></span> Salir</a></li>
+                        <li class="dropdown">
+                            <a href="Redirect?pagina=menu-admin.jsp" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                <span class="glyphicon glyphicon-user"></span>&nbsp; Administrador
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#" data-toggle="modal" data-target="#editarPerfil">Editar mi informacion</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="Logout"><span class="glyphicon glyphicon-log-in"></span>&nbsp; Salir</a></li>
                     </ul>
                 </div>
             </div>
@@ -45,6 +52,16 @@
                             <div class="panel-body">
                                 <div class="list-group">
                                     <a class="list-group-item active">Menu principal</a>
+                                    <a href="Redirect?pagina=centrosDeTrabajo.jsp" class="list-group-item">
+                                        <div class="media">
+                                            <div class="media-left">
+                                                <div class="col-xs-6 col-md-3">
+                                                    <img src="imagenes/escuela.png" alt="Materias" height="30px" width="auto" />
+                                                </div>
+                                            </div>
+                                            <div class="media-body">Centros de Estudio</div>
+                                        </div>
+                                    </a>
                                     <a href="Redirect?pagina=materias.jsp" class="list-group-item">
                                         <div class="media">
                                             <div class="media-left">
@@ -83,6 +100,7 @@
                 </div>
             </div>
         </div>
+        <%@include file="/jsp/EditMyInformation.jsp" %>
         <script type="text/javascript" src="js/jquery/jquery.js"></script>
         <script type="text/javascript" src="js/ie-emulation-modes-warning.js"></script>
         <script type="text/javascript" src="js/bootstrap.min.js"></script>

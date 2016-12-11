@@ -1,5 +1,6 @@
 package com.ipn.mx.controller.servlets;
 
+import com.ipn.mx.sessions.User;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -23,7 +24,18 @@ public class Redirect extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.getRequestDispatcher("jsp/admin/" + request.getParameter("pagina")).forward(request, response);
+        User userType = (User) request.getSession().getAttribute("User-Type");
+        switch(userType) {
+            case ADMIN:
+                request.getRequestDispatcher("jsp/admin/" + request.getParameter("pagina")).forward(request, response);
+                break;
+            case ALUMNO:
+                request.getRequestDispatcher("jsp/alumno/" + request.getParameter("pagina")).forward(request, response);
+                break;
+            case PROFESOR:
+                request.getRequestDispatcher("jsp/profesor/" + request.getParameter("pagina")).forward(request, response);
+                break;
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
