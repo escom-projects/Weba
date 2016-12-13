@@ -1,16 +1,7 @@
-package com.ipn.mx.controller.servlets.admin;
+package com.ipn.mx.controller.servlets;
 
-import com.ipn.mx.model.dao.CentroDeTrabajoDAO;
-import com.ipn.mx.model.entities.Centrodetrabajo;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import javax.json.Json;
-import javax.json.JsonArrayBuilder;
-import javax.json.JsonObjectBuilder;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -20,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Usuario
  */
-public class CentroDeTrabajoServlet extends HttpServlet {
+public class EnvioDatosPersonalesServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -33,29 +24,6 @@ public class CentroDeTrabajoServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String centro_trabajo = request.getParameter("centro_trabajo");
-        List<Centrodetrabajo> ces = new ArrayList<>();
-        CentroDeTrabajoDAO dao = new CentroDeTrabajoDAO();
-        Centrodetrabajo ce = new Centrodetrabajo();
-        ce.setNombreCentroDeTrabajo(centro_trabajo);
-        ce.setCarreras(new HashSet<>(0));
-        
-        dao.guardar(ce);
-        
-        try {
-            ces = dao.readAll();
-        } catch (NullPointerException e) {
-            ces = null;
-        }
-        
-        try {
-            request.setAttribute("listaCES", ces);
-            RequestDispatcher vista = request.
-                getRequestDispatcher("jsp/admin/centrosDeTrabajo.jsp");
-            vista.forward(request, response);
-        } catch (ServletException | IOException ex) {
-            System.out.println("Error de redireccion de pagina: " + ex.getMessage());
-        }
         
     }
 

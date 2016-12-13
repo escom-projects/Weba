@@ -40,6 +40,18 @@
         <servlet-name>AlumnoServlet</servlet-name>
         <servlet-class>com.ipn.mx.controller.servlets.alumno.AlumnoServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>EnvioDatosPersonalesServlet</servlet-name>
+        <servlet-class>com.ipn.mx.controller.servlets.EnvioDatosPersonalesServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AyudaServlet</servlet-name>
+        <servlet-class>com.ipn.mx.controller.servlets.AyudaServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>GuardarExamenServlet</servlet-name>
+        <servlet-class>com.ipn.mx.controller.servlets.profesor.GuardarExamenServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/Login</url-pattern>
@@ -79,6 +91,18 @@
     <servlet-mapping>
         <servlet-name>AlumnoServlet</servlet-name>
         <url-pattern>/AlumnoServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EnvioDatosPersonalesServlet</servlet-name>
+        <url-pattern>/EnvioDatosPersonalesServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AyudaServlet</servlet-name>
+        <url-pattern>/AyudaServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GuardarExamenServlet</servlet-name>
+        <url-pattern>/GuardarExamenServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

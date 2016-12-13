@@ -37,7 +37,7 @@
                         </li>
                     </ul>                  
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="Redirect?pagina=profesor/menu-profesor.jsp"><span class="glyphicon glyphicon-user"></span> Profesor</a></li>
+                        <li><a href="Redirect?pagina=profesor/menu-profesor.jsp" data-toggle="modal" data-target="#editarPerfil"><span class="glyphicon glyphicon-user"></span> Profesor</a></li>
                         <li><a href="Logout"><span class="glyphicon glyphicon-log-in"></span> Salir</a></li>
                     </ul>
                 </div>
@@ -50,40 +50,43 @@
                     <div class="col-md-8">
                         <div class="panel panel-default">
                             <div class="panel-body">
-                                <div class="btn-group">
-                                   <div class="input-group">
-                                        <span class="input-group-addon"><span class="glyphicon glyphicon-bookmark" aria-hidden="true"></span></span>
-                                        <div id="form-input">
-                                            <input type="text" name="inputTitle" id="inputTitle" class="form-control" placeholder="Inserta el título" required>
-                                        </div>
-                                    </div>
-                                    <a class="btn dropdown-toggle"  data-toggle="dropdown"  id="insert_question" title="Insertar pregunta" aria-expanded="false">
-                                        <img alt="Plus" src="imagenes/Add.png">     
-                                            Insertar Pregunta
-                                        <span class="caret"></span>
-                                    </a>
-                                    <ul class="dropdown-menu insert_picker_dropdown close_on_ click"> 
-                                        <a class="btn action" id="insert_mul">
-                                            <div class="btn-text">
-                                                <img alt="Application-task" src="imagenes/task.png">
-                                                Opci&oacute;n M&uacute;ltiple
+                                <form name="form-elaborar-examen" id="form-elaborar-examen">
+                                    <div class="btn-group">
+                                       <div class="input-group">
+                                            <span class="input-group-addon"><span class="glyphicon glyphicon-bookmark" aria-hidden="true"></span></span>
+                                            <div id="form-input">
+                                                <input type="text" name="inputTitle" id="inputTitle" class="form-control" placeholder="Inserta el título" required>
                                             </div>
-                                        <a class="btn action" id="insert_check">
-                                            <div class="btn-text">
-                                                <img alt="Cross-tick-small" src="imagenes/cross-tick.png">
-                                                Verdadero o Falso
-                                             </div>
+                                        </div>
+                                        <a class="btn dropdown-toggle"  data-toggle="dropdown"  id="insert_question" title="Insertar pregunta" aria-expanded="false">
+                                            <img alt="Plus" src="imagenes/Add.png">     
+                                                Insertar Pregunta
+                                            <span class="caret"></span>
                                         </a>
-                                    </ul><br><br>
-                                </div>
-                                <div id="p1"></div>
-                                <div id="p2"></div>
+                                        <ul class="dropdown-menu insert_picker_dropdown close_on_ click"> 
+                                            <a class="btn action" id="insert_mul">
+                                                <div class="btn-text">
+                                                    <img alt="Application-task" src="imagenes/task.png">
+                                                    Opci&oacute;n M&uacute;ltiple
+                                                </div>
+                                            <a class="btn action" id="insert_check">
+                                                <div class="btn-text">
+                                                    <img alt="Cross-tick-small" src="imagenes/cross-tick.png">
+                                                    Verdadero o Falso
+                                                 </div>
+                                            </a>
+                                        </ul><br><br>
+                                    </div>
+                                    <div id="p1"></div>
+                                    <div id="p2"></div>
+                                </form>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        <%@include file="/jsp/EditMyInformation.jsp" %>
         <script type="text/javascript" src="js/jquery/jquery.js"></script>
         <script type="text/javascript" src="js/ie-emulation-modes-warning.js"></script>
         <script type="text/javascript" src="js/bootstrap.min.js"></script>

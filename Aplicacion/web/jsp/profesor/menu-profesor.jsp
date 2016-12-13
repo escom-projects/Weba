@@ -41,7 +41,14 @@
                         </li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="Redirect?pagina=menu-profesor.jsp"><span class="glyphicon glyphicon-user"></span>&nbsp; Profesor</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                <span class="glyphicon glyphicon-user"></span>&nbsp; Profesor
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#" data-toggle="modal" data-target="#editarPerfil">Editar mi informacion</a></li>
+                            </ul>
+                        </li>
                         <li><a href="Logout"><span class="glyphicon glyphicon-log-in"></span>&nbsp; Salir</a></li>
                     </ul>
                 </div>
@@ -70,7 +77,7 @@
                                                 <div class="media-body">Materias</div>
                                             </div>
                                         </a>
-                                        <a href="" class="list-group-item">
+                                        <a href="Redirect?pagina=realizarExamenes.jsp" class="list-group-item">
                                             <div class="media">
                                                 <div class="media-left">
                                                     <div class="col-xs-6 col-md-3">
@@ -96,6 +103,7 @@
                 </div>
             </div>
         </div>
+        <%@include file="/jsp/EditMyInformation.jsp" %>
         <script type="text/javascript" src="js/jquery/jquery.js"></script>
         <script type="text/javascript" src="js/ie-emulation-modes-warning.js"></script>
         <script type="text/javascript" src="js/bootstrap.min.js"></script>

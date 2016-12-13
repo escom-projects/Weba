@@ -175,7 +175,28 @@ public class UsuarioDAO {
             }
         }
         return users;
-    }    
+    }
+    
+    public List<Usuario> findByEmail(Usuario usuario) {
+        Session sesion = HibernateUtil.getSessionFactory().getCurrentSession();
+        Transaction transaccion = sesion.getTransaction();
+        List<Usuario> users = new ArrayList<>();
+        String hql = "from Usuario as u "
+                + " where u.email =:email";
+        try {
+            transaccion.begin();
+            Query q = sesion.createQuery(hql);
+            q.setParameter("email", usuario.getEmail());
+            users = q.list();
+            transaccion.commit();
+        } catch (HibernateException e) {
+            e.printStackTrace();
+            if (transaccion != null && transaccion.isActive()) {
+                transaccion.rollback();
+            }
+        }
+        return users;
+    }
     
     public static void main(String[] args) {
         UsuarioDAO dao = new UsuarioDAO();

@@ -1,18 +1,21 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 8/11/2016 12:07:39 AM by Hibernate Tools 4.3.1 -->
+<!-- Generated 13/12/2016 12:01:18 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="com.ipn.mx.model.entities.Respuestas" table="respuestas" catalog="program1_weba" optimistic-lock="version">
         <id name="idRespuesta" type="java.lang.Integer">
             <column name="idRespuesta" />
             <generator class="identity" />
         </id>
-        <many-to-one name="preguntas" class="com.ipn.mx.model.entities.Preguntas" fetch="select">
+        <many-to-one name="preguntas" class="com.ipn.mx.model.entities.Preguntas" fetch="select" cascade="all">
             <column name="idPregunta" not-null="true" />
         </many-to-one>
         <property name="respuesta" type="string">
             <column name="respuesta" length="100" />
+        </property>
+        <property name="respuestaExamen" type="string">
+            <column name="respuestaExamen" length="100" />
         </property>
     </class>
 </hibernate-mapping>

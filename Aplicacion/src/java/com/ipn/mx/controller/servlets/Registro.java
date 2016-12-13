@@ -77,6 +77,8 @@ public class Registro extends HttpServlet {
     private void registro(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
             Utilerias correo = new Utilerias();
+            correo.init();
+            
             DateFormat formatoFechaNacimiento = new SimpleDateFormat("yyyy-MM-dd");
             long matricula = Long.parseLong(request.getParameter("matricula"));
             String nombreUsuario = request.getParameter("nombre");

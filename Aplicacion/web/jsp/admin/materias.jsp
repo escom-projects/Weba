@@ -54,7 +54,7 @@
                                 Lista de Materias
                             </div>
                             <div class="media-body">
-                                <div class="col-md-5"></div>
+                                <div class="col-md-3"></div>
                             </div>
                             <div class="media-right">
                                 <div class="btn-group" role="group" aria-label="">
@@ -75,7 +75,9 @@
                             <th>Cr&eacute;ditos</th>
                             <th>Acciones</th>
                         </thead>
-                        <tbody id="rows"></tbody>
+                        <tbody id="rows">
+                            
+                        </tbody>
                     </table>
                 </div>
             </div>

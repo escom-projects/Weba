@@ -1,6 +1,4 @@
 package com.ipn.mx.model.entities;
-// Generated 8/11/2016 12:07:37 AM by Hibernate Tools 4.3.1
-
 
 import java.util.HashSet;
 import java.util.Set;

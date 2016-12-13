@@ -1,6 +1,4 @@
 package com.ipn.mx.model.entities;
-// Generated 8/11/2016 12:07:37 AM by Hibernate Tools 4.3.1
-
 
 import java.util.Date;
 import java.util.HashSet;
@@ -16,6 +14,7 @@ public class Examen  implements java.io.Serializable {
      private Materias materias;
      private Date fechaActualizacion;
      private Date fechaRealizacion;
+     private String titulo;
      private Set<Calificaciones> calificacioneses = new HashSet<Calificaciones>(0);
      private Set<Preguntas> preguntases = new HashSet<Preguntas>(0);
 
@@ -23,13 +22,15 @@ public class Examen  implements java.io.Serializable {
     }
 
 	
-    public Examen(Materias materias) {
+    public Examen(Materias materias, String titulo) {
         this.materias = materias;
+        this.titulo = titulo;
     }
-    public Examen(Materias materias, Date fechaActualizacion, Date fechaRealizacion, Set<Calificaciones> calificacioneses, Set<Preguntas> preguntases) {
+    public Examen(Materias materias, Date fechaActualizacion, Date fechaRealizacion, String titulo, Set<Calificaciones> calificacioneses, Set<Preguntas> preguntases) {
        this.materias = materias;
        this.fechaActualizacion = fechaActualizacion;
        this.fechaRealizacion = fechaRealizacion;
+       this.titulo = titulo;
        this.calificacioneses = calificacioneses;
        this.preguntases = preguntases;
     }
@@ -61,6 +62,13 @@ public class Examen  implements java.io.Serializable {
     
     public void setFechaRealizacion(Date fechaRealizacion) {
         this.fechaRealizacion = fechaRealizacion;
+    }
+    public String getTitulo() {
+        return this.titulo;
+    }
+    
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
     }
     public Set<Calificaciones> getCalificacioneses() {
         return this.calificacioneses;

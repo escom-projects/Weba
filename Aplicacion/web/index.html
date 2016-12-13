@@ -4,8 +4,8 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="">
-        <meta name="author" content="">
+        <meta name="description" content="Sistema WEB de administración y elaboracion de exámenes escolares">
+        <meta name="author" content="Sistema WEB">
         <title>Acceso principal</title>
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <link href="css/ie10-viewport-bug-workaround.css" rel="stylesheet">
@@ -25,7 +25,7 @@
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#">Ayuda</a></li>
+                        <li><a href="#"  data-toggle="modal" data-target='#forgot-cuenta' data-placement="bottom" title="Ayuda para usuarios">Ayuda</a></li>
                         <li class="active"><a href="registro.html">Registrate <span class="sr-only">(current)</span></a></li>
                     </ul>
                 </div>
@@ -55,10 +55,55 @@
                 <button class="btn btn-lg btn-primary btn-block" type="submit">Acceder</button>
             </form>
         </div>
+        <div class="modal fade" id="forgot-cuenta" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">¿Olvidaste tu contrase&ntilde;a?</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="container">
+                                <p>Env&iacute;anos tu correo:</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-10">
+                                <div id="formulario">
+                                    <form id="form-actualizacion" name="form-actualizacion" class="form-horizontal">
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label">E-mail: </label>
+                                            <div class="col-sm-10">
+                                                <div id="campo">
+                                                    <input type="text" id="email" name="email" class="form-control" placeholder="Introduce tu email">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div id="boton-enviar-datos" class="form-group">
+                                            <div class="col-sm-offset-2 col-sm-10">
+                                                <input type="button" name="enviarDatos" id="enviarDatos" class="btn btn-primary" value="Enviar" />
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="col-md-1"></div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
         <script type="text/javascript" src="js/jquery/jquery.js"></script>
         <script type="text/javascript" src="js/validator/jquery.validate.js"></script>
         <script type="text/javascript" src="js/ie10-viewport-bug-workaround.js"></script>
         <script type="text/javascript" src="js/ie-emulation-modes-warning.js"></script>
+        <script type="text/javascript" src="js/bootstrap.min.js"></script>
         <script type="text/javascript" src="js/login/funciones.js"></script>
+        <script type="text/javascript" src="js/emailValidation/email-validation.js"></script>
     </body>
 </html>

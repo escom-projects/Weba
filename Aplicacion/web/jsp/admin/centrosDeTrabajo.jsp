@@ -1,3 +1,6 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -51,13 +54,13 @@
                                 <h2>Registro de centros de trabajo</h2>
                             </div>
                             <div class="panel-body">
-                                <form id="formulario-registro-centros-de-trabajo" name="formulario-registro-centros-de-trabajo">
+                                <form id="formulario-registro-centros-de-trabajo" name="formulario-registro-centros-de-trabajo" action="CentroDeTrabajoServlet" method="post">
                                     <div class="form-group">
                                         <label>Nombre centro de trabajo:</label>
                                         <input type="text" class="form-control" id="centro_trabajo" name="centro_trabajo" placeholder="Escribe el nombre del centro de trabajo.">
                                     </div>
                                     <div class="form-group">
-                                        <button type="button" class="btn btn-primary" name="btnGuardarCT" id="btnGuardarCT">Guardar</button>                                  
+                                        <button type="submit" class="btn btn-primary" name="btnGuardarCT" id="btnGuardarCT">Guardar</button>                                  
                                     </div>
                                 </form>
                             </div>
@@ -71,7 +74,34 @@
                                 <th>Nombre centro de trabajo</th>
                                 <th>Carreras</th>
                             </thead>
-                            <tbody id="rows"></tbody>
+                            <tbody id="rows">
+                                <c:set var="numRow" value="0" scope="page" />
+                                <c:choose>
+                                    <c:when test="${fn:length(listaCES) > 0}">
+                                        <for:each var="ce" items="${listaCES}">
+                                            <tr>
+                                                <td>
+                                                    <c:set var="numRow" value="${numRow + 1}" scope="page"/>
+                                                    <c:out value="${numRow}" />
+                                                </td>
+                                                <td>
+                                                    <c:out value="${ce.nombreCentroDeTrabajo}" />
+                                                </td>
+                                                <td>
+                                                    <button class="btn btn-danger" id="btnEliminar" name="btnEliminar" onclick="javascript: deleteCE(<c:out value="${ce.idcentrodetrabajo}" />)">
+                                                        <span class="glyphicon glyphicon-remove"></span>&nbsp;&nbsp;Eliminar
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                        </for:each>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <tr>
+                                            <td colspan="3"><i>No has registrado centros de trabajo</i></td>
+                                        </tr>
+                                    </c:otherwise>
+                                </c:choose>
+                            </tbody>
                         </table>
                     </div>
                 </div>
