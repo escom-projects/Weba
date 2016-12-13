@@ -79,7 +79,22 @@ public class AlumnosServlet extends HttpServlet {
     }// </editor-fold>
 
     private void procesarEliminacionAlumno(HttpServletRequest request, HttpServletResponse response) {
-
+        long matricula = Long.parseLong(request.getParameter("id"));
+        UsuarioDAO dao = new UsuarioDAO();
+        Usuario usuario = new Usuario();
+        usuario.setMatricula(matricula);
+        response.setContentType("application/json");
+        response.setCharacterEncoding("UTF-8");
+        try (PrintWriter out = response.getWriter()) {
+            JsonObjectBuilder messageBuilder = Json.createObjectBuilder();
+            Usuario leido = dao.read(usuario);
+            dao.delete(leido);
+            messageBuilder.add("Estado", "OK");
+            out.print(messageBuilder.build());
+            out.flush();
+        } catch (IOException ex) {
+            System.out.println("Error de escritura en buffer de salida: " + ex.toString());
+        }
     }
 
     private void procesarLecturaAlumnos(HttpServletRequest request, HttpServletResponse response) throws IOException {

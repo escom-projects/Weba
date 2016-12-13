@@ -64,7 +64,7 @@ public class UsuarioDAO {
         Transaction transaccion = sesion.getTransaction();
         try {
             transaccion.begin();
-            read = (Usuario) sesion.get(u.getClass(), u.getClaveUsuario());
+            read = (Usuario) sesion.get(u.getClass(), u.getMatricula());
             transaccion.commit();
         } catch (HibernateException e) {
             if (transaccion != null && transaccion.isActive()) {
@@ -200,24 +200,32 @@ public class UsuarioDAO {
     
     public static void main(String[] args) {
         UsuarioDAO dao = new UsuarioDAO();
+        TipoUsuarioDAO daotipo = new TipoUsuarioDAO();
         Usuario usuario = new Usuario();
-        usuario.setNickUsuario("alumno_alumno");
-        usuario.setClaveUsuario("paterno@alumno");
-        List<Object[]> readed = new ArrayList<>();
-        try {
-            readed = dao.findMateriasBytipoUsuario(usuario);
-            if (readed.isEmpty()) {
-                System.out.println("Lista vacia");
-            } else {
-                for (Object[] materias : readed) {
-                    System.out.println("ID: " + ((Materias)materias[1]).getIdMaterias());
-                    System.out.println("Nombre: " + ((Materias)materias[1]).getNombreMateria());
-                    System.out.println("Creditos: " + ((Materias)materias[1]).getCreditos());
-                }
-                System.out.println("Lectura de datos finalizada!!!");
-            }
-        } catch(NullPointerException n) {
-            System.out.println("No existen materias relacionadas al usuario." + n.toString());
-        }
+        usuario.setMatricula(Long.valueOf("4059120345"));
+        Usuario read = dao.read(usuario);
+        dao.delete(read);
+        
+        System.out.println("Usuario eliminado");
+//        UsuarioDAO dao = new UsuarioDAO();
+//        Usuario usuario = new Usuario();
+//        usuario.setNickUsuario("alumno_alumno");
+//        usuario.setClaveUsuario("paterno@alumno");
+//        List<Object[]> readed = new ArrayList<>();
+//        try {
+//            readed = dao.findMateriasBytipoUsuario(usuario);
+//            if (readed.isEmpty()) {
+//                System.out.println("Lista vacia");
+//            } else {
+//                for (Object[] materias : readed) {
+//                    System.out.println("ID: " + ((Materias)materias[1]).getIdMaterias());
+//                    System.out.println("Nombre: " + ((Materias)materias[1]).getNombreMateria());
+//                    System.out.println("Creditos: " + ((Materias)materias[1]).getCreditos());
+//                }
+//                System.out.println("Lectura de datos finalizada!!!");
+//            }
+//        } catch(NullPointerException n) {
+//            System.out.println("No existen materias relacionadas al usuario." + n.toString());
+//        }
     }
 }

@@ -39,9 +39,7 @@ public class GuardarExamenServlet extends HttpServlet {
             Set<Preguntas> preguntas = new HashSet<>(0);
             examen.setTitulo(formulario[0]);
             for (int i = 1; i < formulario.length; i += 7) {
-                for (int j = 0; j < 6; j++) {
-                    
-                }
+                
                 Preguntas pregunta = new Preguntas();
                 Set<Respuestas> respuestas = new HashSet<>(0);
                 Respuestas respuesta_1 = new Respuestas();

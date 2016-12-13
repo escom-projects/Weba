@@ -22,10 +22,10 @@ function cargarAlumnos() {
                     row += "<td>" + list[i].nombre + "</td>";
                     row += "<td>" + list[i].correo + "</td>";
                     row += "<td>" + list[i].nickUsuario + ", " + list[i].claveUsuario + "</td>";
-                    row += "<td><button type=\"button\" class=\"btn btn-primary\" data-toggle=\"modal\" data-target=\"#myModalA\">Añadir</button></td>";
+                    row += "<td><button type=\"button\" class=\"btn btn-primary\" data-toggle=\"modal\" data-target=\"#myModalA\" onclick=\"javascript: \">Añadir</button></td>";
                     row += "<td><button type=\"button\" class=\"btn btn-primary\" data-toggle=\"modal\" data-target=\"#myModalE\">Eliminar</button></td>";
                     row += "<td><button type=\"button\" class=\"btn btn-danger\" onclick=\"javascript: bajaAlumno(" + 
-                        list[i].ID + ", '" + list[i].nickUsuario + "', '" + list[i].claveUsuario + "');\">Eliminar</button></td>";
+                        list[i].ID + ");\">Eliminar</button></td>";
                     row += "</tr>";
                 }
             } else if (obj.status === "emptyArray") {
@@ -42,20 +42,27 @@ function cargarAlumnos() {
     });
 }
 
-function bajaAlumno(id, nickUsuario, claveUsuario) {
+function bajaAlumno(id) {
     $.ajax({
         'url': "AlumnosServlet",
         'type': "get",
-        'data': { 
+        'data': {
             'accion': 'eliminar',
-            'id': id,
-            'nickUsuario': nickUsuario,
-            'claveUsuario': claveUsuario
+            'id': id
         },
         'contentType': 'application/json',
         'dataType': "json"
-    }).done(function (data, txtstatus, jqXHR) {
-        
+    }).done(function (data, textStatus, jqXHR) {
+        var obj = eval(data);
+        if (textStatus === "success") {
+            if (obj.Estado === "OK") {
+                alert("¡Alumno eliminado!");
+                window.location.href = "Redirect?pagina=alumnos.jsp";
+            } else {
+                alert("¡Ocurrio un error al eliminar alumno!");
+                window.location.href = "Redirect?pagina=menu-admin.jsp";
+            }
+        }
     }).fail(function (jqXHR, textStatus, errorThrown) {
         alert("Ha ocurrido un error de comunicacion con el servidor. Intentelo mas tarde.\n" +
               "Error: " + errorThrown + "\n" +

@@ -89,7 +89,8 @@ public class ProfesoresServlet extends HttpServlet {
         response.setCharacterEncoding("UTF-8");
         try (PrintWriter out = response.getWriter()) {
             JsonObjectBuilder messageBuilder = Json.createObjectBuilder();
-            dao.delete(usuario);
+            Usuario read = dao.read(usuario);
+            dao.delete(read);
             messageBuilder.add("Estado", "OK");
             out.print(messageBuilder.build());
             out.flush();

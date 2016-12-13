@@ -22,7 +22,7 @@ function cargarProfesores() {
                     row += "<td>" + list[i].nombre + "</td>";
                     row += "<td>" + list[i].correo + "</td>";
                     row += "<td>" + list[i].nickUsuario + ", " + list[i].claveUsuario + "</td>";
-                    row += "<td><button type=\"button\" class=\"btn btn-danger\" onclick=\"javascript: eliminarMateria(" + 
+                    row += "<td><button type=\"button\" class=\"btn btn-danger\" onclick=\"javascript: eliminarProfesor(" + 
                         list[i].ID + ", '" + list[i].nickUsuario + "', '" + list[i].claveUsuario + "');\">Eliminar</button></td>";
                     row += "</tr>";
                 }
@@ -62,7 +62,7 @@ function modificarAcceso(id, nickUsuario, claveUsuario) {
     });
 }
 
-function eliminarProfesor(id) {
+function eliminarProfesor(id, nick, clave) {
     $.ajax({
         'url': "ProfesoresServlet",
         'type': "get",
@@ -75,7 +75,13 @@ function eliminarProfesor(id) {
     }).done(function (data, textStatus, jqXHR) {
         var obj = eval(data);
         if (textStatus === "success") {
-            alert(obj.status);
+            if (obj.Estado === "OK") {
+                alert("¡Profesor eliminado!");
+                window.location.href = "Redirect?pagina=profesores.jsp";
+            } else {
+                alert("¡Ocurrio un error al eliminar profesor!");
+                window.location.href = "Redirect?pagina=menu-admin.jsp";
+            }
         }
     }).fail(function (status, errorThrown) {
         alert("Estatus del servidor: " + status + "\n" + 
